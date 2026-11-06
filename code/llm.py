@@ -26,7 +26,9 @@ MODELS = {"ds-flash": ("deepseek", "deepseek-flash"), "ds-pro": ("deepseek", "de
           # international labelers through the company gateway (a router, unlike the first-party endpoints above)
           "gpt-6-sol": ("gateway", "gpt-6-sol"), "claude-opus-5.5": ("gateway", "claude-opus-5-5"),
           # open-weight, deterministic: Qwen2.5-3B-Instruct (Q4_K_M GGUF) with greedy decoding, no request batching
-          "qwen2.5-3b": ("local", "qwen2.5-3b-instruct-q4_k_m")}
+          "qwen2.5-3b": ("local", "qwen2.5-3b-instruct-q4_k_m"),
+          # the same family at 7B (Q4_K_M GGUF, two shards), served on an NVIDIA A10 under the same settings
+          "qwen2.5-7b": ("local7", "qwen2.5-7b-instruct-q4_k_m")}
 OFF = {"thinking": {"type": "disabled"}}
 FIXED = {"ds-flash": OFF, "ds-pro": OFF, "glm-flash": OFF, "glm-air": OFF, "glm-air-k3": OFF,
          "kimi-k2.6": {**OFF, "temperature": 0.6}, "kimi-k3": {**OFF, "temperature": 0.6}}
@@ -38,7 +40,7 @@ PRICES["glm-air-k3"] = PRICES["glm-air"]  # placeholder: the served model's own 
 PRICES.update({"glm-5.3": (0.0, 0.0), "glm-5.3-flash": (0.0, 0.0)})
 FIXED.update({"glm-5.3": {"reasoning": {"effort": "minimal"}}, "glm-5.3-flash": {"reasoning": {"effort": "minimal"}}})
 # gateway calls are billed to the company, not per token to us: usd stays 0 and tokens are logged
-PRICES.update({"gpt-6-sol": (0.0, 0.0), "claude-opus-5.5": (0.0, 0.0), "qwen2.5-3b": (0.0, 0.0)})
+PRICES.update({"gpt-6-sol": (0.0, 0.0), "claude-opus-5.5": (0.0, 0.0), "qwen2.5-3b": (0.0, 0.0), "qwen2.5-7b": (0.0, 0.0)})
 FIXED["claude-opus-5.5"] = {"temperature": None}  # "temperature is deprecated for this model" on part of the gateway
 # cache entries older than CACHE_AFTER (unix time) are ignored and re-fetched, e.g. to keep pilot-era answers out of
 # the main runs (the main runs use CACHE_AFTER = the time the protocol was fixed)

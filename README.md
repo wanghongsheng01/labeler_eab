@@ -62,12 +62,18 @@ Create a JSON file outside the repository, e.g. `~/.config/llm_keys.json` (chmod
  "kimi":     {"api_key": "...", "base_url": "https://api.moonshot.cn/v1"},
  "glmplan":  {"api_key": "...", "base_url": "https://open.bigmodel.cn/api/v1", "api": "responses"},
  "gateway":  {"api_key": "...", "base_url": "<any OpenAI-compatible endpoint that serves gpt-6-sol and claude-opus-5-5>"},
- "local":    {"api_key": "none", "base_url": "http://<host>:8080/v1"}}
+ "local":    {"api_key": "none", "base_url": "http://<host>:8080/v1"},
+ "local7":   {"api_key": "none", "base_url": "http://<gpu-host>:8080/v1"}}
 ```
 
 The added labelers of Section V-E use `gateway` (GPT-6, Claude) and `local`, a llama.cpp server
 (`python -m llama_cpp.server --model qwen2.5-3b-instruct-q4_k_m.gguf --n_ctx 8192 --seed 0`, the GGUF file from the
 `Qwen/Qwen2.5-3B-Instruct-GGUF` repository on Hugging Face, SHA-256 `626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d`), queried one request at a time.
+`local7` serves Qwen2.5-7B-Instruct the same way on one NVIDIA A10 GPU (llama-cpp-python 0.3.16 with CUDA 12.4,
+`--n_gpu_layers -1`; the two shards `qwen2.5-7b-instruct-q4_k_m-0000{1,2}-of-00002.gguf` of `Qwen/Qwen2.5-7B-Instruct-GGUF`,
+SHA-256 `dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db` and
+`539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a`; pass the first shard as `--model`); `code/run_gpu7b.sh`
+runs its block on all seven datasets.
 
 Then, for example:
 

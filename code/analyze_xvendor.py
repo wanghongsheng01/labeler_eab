@@ -1,6 +1,6 @@
 """Labelers added on 2026-11-06 to answer the vendor-coverage limitation: GPT-6-Sol and Claude-Opus-5.5 (through the
-company gateway) and the open-weight Qwen2.5-3B-Instruct served by llama.cpp on a CPU server (greedy decoding, one
-request at a time). Same quantities as the main analysis, B = 10:
+company gateway) and the open-weight Qwen2.5-3B-Instruct (llama.cpp on a CPU server) and Qwen2.5-7B-Instruct (llama.cpp on one A10
+GPU), both with greedy decoding and one request at a time. Same quantities as the main analysis, B = 10:
   comp   composition sensitivity: canonical vs. every other random order that was run (cluster bootstrap over calls)
   rerun  rerun flip rate of the canonical calls
   pos    label change when the canonical calls are only permuted (perm1)
@@ -15,7 +15,7 @@ from tasks import load
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M = f"{HERE}/results/main"
-MODELS = ("gpt-6-sol", "claude-opus-5.5", "qwen2.5-3b")
+MODELS = ("gpt-6-sol", "claude-opus-5.5", "qwen2.5-3b", "qwen2.5-7b")
 rng = np.random.default_rng(0)
 
 

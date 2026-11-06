@@ -56,7 +56,7 @@ def xvendor():
     if not os.path.exists(f):
         return
     d = pd.read_csv(f)
-    XN = {"gpt-6-sol": "GPT-6", "claude-opus-5.5": "Claude", "qwen2.5-3b": "Qwen-3B"}
+    XN = {"gpt-6-sol": "GPT-6", "claude-opus-5.5": "Claude", "qwen2.5-3b": "Qwen-3B", "qwen2.5-7b": "Qwen-7B"}
     pct = lambda v: "--" if pd.isna(v) else f"{100 * v:.1f}"
     sgn = lambda v: "--" if pd.isna(v) else f"{v:+.1f}".replace("-", "$-$")
     star = lambda v, p: sgn(v) + (r"$^{*}$" if (not pd.isna(p)) and p < 0.05 else "")
