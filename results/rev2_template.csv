@@ -1,0 +1,15 @@
+model,task,n,template_flip
+ds-pro,agnews,1000,0.043
+ds-pro,amazon,1000,0.189
+ds-pro,emotion,996,0.1746987951807229
+ds-pro,hate,999,0.17217217217217218
+ds-pro,imdb,1000,0.024
+ds-pro,offensive,860,0.08255813953488372
+ds-pro,yelp,1000,0.175
+ds-flash,agnews,1999,0.0400200100050025
+ds-flash,amazon,2000,0.1275
+ds-flash,emotion,2000,0.147
+ds-flash,hate,2000,0.116
+ds-flash,imdb,2000,0.0115
+ds-flash,offensive,860,0.05
+ds-flash,yelp,2000,0.074

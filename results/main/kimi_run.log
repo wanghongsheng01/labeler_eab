@@ -1,0 +1,64 @@
+kimi-k2.6  imdb     B=10  batch  shuffled  rep=0 n=1000 acc=0.960 refused=0.000 missing=0.000 $=0.2749 wall=0s
+kimi-k2.6  imdb     B=10  batch  shuffled1 rep=0 n=1000 acc=0.965 refused=0.000 missing=0.000 $=0.2749 wall=77s
+kimi-k2.6  imdb     B=10  batch  shuffled2 rep=0 n=1000 acc=0.968 refused=0.000 missing=0.000 $=0.2749 wall=74s
+kimi-k2.6  imdb     B=10  batch  shuffled3 rep=0 n=1000 acc=0.960 refused=0.000 missing=0.000 $=0.2749 wall=75s
+kimi-k2.6  imdb     B=10  batch  sorted    rep=0 n=1000 acc=0.953 refused=0.000 missing=0.000 $=0.2749 wall=0s
+kimi-k2.6  imdb     B=10  batch  keyed     rep=0 n=1000 acc=0.962 refused=0.000 missing=0.000 $=0.2749 wall=77s
+wrote results/main/B10__kimi-k2.6__imdb.csv spent today: {'kimi-k2.6': 1.099}
+kimi-k2.6  yelp     B=10  batch  shuffled  rep=0 n=1000 acc=0.678 refused=0.000 missing=0.000 $=0.1933 wall=0s
+kimi-k2.6  yelp     B=10  batch  shuffled1 rep=0 n=1000 acc=0.695 refused=0.000 missing=0.000 $=0.1933 wall=80s
+kimi-k2.6  yelp     B=10  batch  shuffled2 rep=0 n=1000 acc=0.688 refused=0.000 missing=0.000 $=0.1933 wall=78s
+kimi-k2.6  yelp     B=10  batch  shuffled3 rep=0 n=1000 acc=0.690 refused=0.000 missing=0.000 $=0.1933 wall=79s
+kimi-k2.6  yelp     B=10  batch  sorted    rep=0 n=1000 acc=0.647 refused=0.000 missing=0.000 $=0.1933 wall=0s
+kimi-k2.6  yelp     B=10  batch  keyed     rep=0 n=1000 acc=0.659 refused=0.000 missing=0.000 $=0.1933 wall=80s
+wrote results/main/B10__kimi-k2.6__yelp.csv spent today: {'kimi-k2.6': 1.873}
+kimi-k2.6  agnews   B=10  batch  shuffled  rep=0 n=1000 acc=0.897 refused=0.000 missing=0.000 $=0.0799 wall=0s
+kimi-k2.6  agnews   B=10  batch  shuffled1 rep=0 n=1000 acc=0.895 refused=0.000 missing=0.000 $=0.0798 wall=66s
+kimi-k2.6  agnews   B=10  batch  shuffled2 rep=0 n=1000 acc=0.891 refused=0.000 missing=0.000 $=0.0799 wall=66s
+kimi-k2.6  agnews   B=10  batch  shuffled3 rep=0 n=1000 acc=0.891 refused=0.000 missing=0.000 $=0.0798 wall=67s
+kimi-k2.6  agnews   B=10  batch  sorted    rep=0 n=1000 acc=0.832 refused=0.000 missing=0.000 $=0.0795 wall=0s
+kimi-k2.6  agnews   B=10  batch  keyed     rep=0 n=1000 acc=0.895 refused=0.000 missing=0.000 $=0.0798 wall=65s
+wrote results/main/B10__kimi-k2.6__agnews.csv spent today: {'kimi-k2.6': 2.192}
+kimi-k2.6  emotion  B=10  batch  shuffled  rep=0 n=1000 acc=0.588 refused=0.000 missing=0.000 $=0.0504 wall=0s
+kimi-k2.6  emotion  B=10  batch  shuffled1 rep=0 n=1000 acc=0.582 refused=0.000 missing=0.000 $=0.0504 wall=56s
+kimi-k2.6  emotion  B=10  batch  shuffled2 rep=0 n=1000 acc=0.580 refused=0.000 missing=0.000 $=0.0504 wall=56s
+kimi-k2.6  emotion  B=10  batch  shuffled3 rep=0 n=1000 acc=0.592 refused=0.000 missing=0.000 $=0.0504 wall=58s
+kimi-k2.6  emotion  B=10  batch  sorted    rep=0 n=1000 acc=0.559 refused=0.000 missing=0.000 $=0.0504 wall=57s
+kimi-k2.6  emotion  B=10  batch  keyed     rep=0 n=1000 acc=0.573 refused=0.000 missing=0.000 $=0.0504 wall=61s
+wrote results/main/B10__kimi-k2.6__emotion.csv spent today: {'kimi-k2.6': 2.444}
+kimi-k2.6  hate     B=10  batch  shuffled  rep=0 n=1000 acc=0.723 refused=0.000 missing=0.000 $=0.0704 wall=0s
+kimi-k2.6  hate     B=10  batch  shuffled1 rep=0 n=1000 acc=0.702 refused=0.000 missing=0.000 $=0.0705 wall=72s
+kimi-k2.6  hate     B=10  batch  shuffled2 rep=0 n=1000 acc=0.721 refused=0.000 missing=0.000 $=0.0704 wall=69s
+kimi-k2.6  hate     B=10  batch  shuffled3 rep=0 n=1000 acc=0.703 refused=0.000 missing=0.000 $=0.0704 wall=68s
+kimi-k2.6  hate     B=10  batch  sorted    rep=0 n=1000 acc=0.731 refused=0.000 missing=0.000 $=0.0702 wall=66s
+kimi-k2.6  hate     B=10  batch  keyed     rep=0 n=1000 acc=0.699 refused=0.000 missing=0.000 $=0.0705 wall=70s
+wrote results/main/B10__kimi-k2.6__hate.csv spent today: {'kimi-k2.6': 2.796}
+kimi-k2.6  offensive B=10  batch  shuffled  rep=0 n=860 acc=0.822 refused=0.000 missing=0.000 $=0.0608 wall=56s
+kimi-k2.6  offensive B=10  batch  shuffled1 rep=0 n=860 acc=0.805 refused=0.000 missing=0.000 $=0.0608 wall=59s
+kimi-k2.6  offensive B=10  batch  shuffled2 rep=0 n=860 acc=0.824 refused=0.000 missing=0.000 $=0.0608 wall=60s
+kimi-k2.6  offensive B=10  batch  shuffled3 rep=0 n=860 acc=0.823 refused=0.000 missing=0.000 $=0.0608 wall=56s
+kimi-k2.6  offensive B=10  batch  sorted    rep=0 n=860 acc=0.774 refused=0.000 missing=0.000 $=0.0609 wall=57s
+kimi-k2.6  offensive B=10  batch  keyed     rep=0 n=860 acc=0.820 refused=0.000 missing=0.000 $=0.0608 wall=54s
+wrote results/main/B10__kimi-k2.6__offensive.csv spent today: {'kimi-k2.6': 3.161}
+kimi-k2.6  amazon   B=10  batch  shuffled  rep=0 n=1000 acc=0.595 refused=0.000 missing=0.000 $=0.0732 wall=0s
+kimi-k2.6  amazon   B=10  batch  shuffled1 rep=0 n=1000 acc=0.602 refused=0.000 missing=0.000 $=0.0732 wall=66s
+kimi-k2.6  amazon   B=10  batch  shuffled2 rep=0 n=1000 acc=0.584 refused=0.000 missing=0.000 $=0.0732 wall=65s
+kimi-k2.6  amazon   B=10  batch  shuffled3 rep=0 n=1000 acc=0.600 refused=0.000 missing=0.000 $=0.0732 wall=66s
+kimi-k2.6  amazon   B=10  batch  sorted    rep=0 n=1000 acc=0.569 refused=0.000 missing=0.000 $=0.0732 wall=0s
+kimi-k2.6  amazon   B=10  batch  keyed     rep=0 n=1000 acc=0.597 refused=0.000 missing=0.000 $=0.0732 wall=66s
+wrote results/main/B10__kimi-k2.6__amazon.csv spent today: {'kimi-k2.6': 3.454}
+kimi-k2.6  imdb     B=10  batch  shuffled  rep=1 n=1000 acc=0.957 refused=0.000 missing=0.000 $=0.2749 wall=81s
+wrote results/main/R10__kimi-k2.6__imdb.csv spent today: {'kimi-k2.6': 3.729}
+kimi-k2.6  yelp     B=10  batch  shuffled  rep=1 n=1000 acc=0.678 refused=0.000 missing=0.000 $=0.1933 wall=42s
+wrote results/main/R10__kimi-k2.6__yelp.csv spent today: {'kimi-k2.6': 3.826}
+kimi-k2.6  agnews   B=10  batch  shuffled  rep=1 n=1000 acc=0.897 refused=0.000 missing=0.000 $=0.0799 wall=34s
+wrote results/main/R10__kimi-k2.6__agnews.csv spent today: {'kimi-k2.6': 3.866}
+kimi-k2.6  emotion  B=10  batch  shuffled  rep=1 n=1000 acc=0.589 refused=0.000 missing=0.000 $=0.0504 wall=30s
+wrote results/main/R10__kimi-k2.6__emotion.csv spent today: {'kimi-k2.6': 3.892}
+kimi-k2.6  hate     B=10  batch  shuffled  rep=1 n=1000 acc=0.720 refused=0.000 missing=0.000 $=0.0704 wall=35s
+wrote results/main/R10__kimi-k2.6__hate.csv spent today: {'kimi-k2.6': 3.927}
+kimi-k2.6  offensive B=10  batch  shuffled  rep=1 n=860 acc=0.826 refused=0.000 missing=0.000 $=0.0608 wall=50s
+wrote results/main/R10__kimi-k2.6__offensive.csv spent today: {'kimi-k2.6': 3.987}
+kimi-k2.6  amazon   B=10  batch  shuffled  rep=1 n=1000 acc=0.592 refused=0.000 missing=0.000 $=0.0732 wall=74s
+wrote results/main/R10__kimi-k2.6__amazon.csv spent today: {'kimi-k2.6': 4.061}
+KIMI DONE Wed Nov  4 08:52:28 CST 2026

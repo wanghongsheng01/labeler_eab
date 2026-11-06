@@ -1,0 +1,38 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+kimi-k2.6  imdb     B=1   single shuffled  rep=0 n=1000 acc=0.962 refused=0.000 missing=0.000 $=0.3023 wall=419s
+kimi-k2.6  imdb     B=1   batch  shuffled  rep=0 n=1000 acc=0.966 refused=0.000 missing=0.000 $=0.3358 wall=462s
+kimi-k2.6  imdb     B=10  batch  shuffled  rep=0 n=1000 acc=0.960 refused=0.000 missing=0.000 $=0.2749 wall=0s
+kimi-k2.6  imdb     B=50  batch  shuffled  rep=0 n=1000 acc=0.967 refused=0.000 missing=0.000 $=0.2695 wall=77s
+wrote results/main/A4__kimi-k2.6__imdb.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 0.908}
+kimi-k2.6  yelp     B=1   single shuffled  rep=0 n=1000 acc=0.615 refused=0.000 missing=0.000 $=0.2348 wall=412s
+kimi-k2.6  yelp     B=1   batch  shuffled  rep=0 n=1000 acc=0.694 refused=0.000 missing=0.000 $=0.2722 wall=562s
+kimi-k2.6  yelp     B=10  batch  shuffled  rep=0 n=1000 acc=0.679 refused=0.000 missing=0.000 $=0.1933 wall=0s
+kimi-k2.6  yelp     B=50  batch  shuffled  rep=0 n=1000 acc=0.679 refused=0.000 missing=0.000 $=0.1863 wall=83s
+wrote results/main/A4__kimi-k2.6__yelp.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 1.601}
+kimi-k2.6  agnews   B=1   single shuffled  rep=0 n=1000 acc=0.879 refused=0.000 missing=0.000 $=0.1135 wall=783s
+kimi-k2.6  agnews   B=1   batch  shuffled  rep=0 n=1000 acc=0.860 refused=0.000 missing=0.000 $=0.1458 wall=585s
+kimi-k2.6  agnews   B=10  batch  shuffled  rep=0 n=1000 acc=0.897 refused=0.000 missing=0.000 $=0.0799 wall=0s
+kimi-k2.6  agnews   B=50  batch  shuffled  rep=0 n=1000 acc=0.905 refused=0.000 missing=0.000 $=0.0741 wall=57s
+wrote results/main/A4__kimi-k2.6__agnews.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 1.934}
+kimi-k2.6  emotion  B=1   single shuffled  rep=0 n=1000 acc=0.564 refused=0.000 missing=0.000 $=0.0894 wall=456s
+kimi-k2.6  emotion  B=1   batch  shuffled  rep=0 n=1000 acc=0.579 refused=0.000 missing=0.000 $=0.1183 wall=589s
+kimi-k2.6  emotion  B=10  batch  shuffled  rep=0 n=1000 acc=0.574 refused=0.000 missing=0.000 $=0.0504 wall=0s
+kimi-k2.6  emotion  B=50  batch  shuffled  rep=0 n=1000 acc=0.613 refused=0.000 missing=0.000 $=0.0444 wall=59s
+wrote results/main/A4__kimi-k2.6__emotion.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 2.186}
+kimi-k2.6  hate     B=1   single shuffled  rep=0 n=1000 acc=0.721 refused=0.000 missing=0.000 $=0.1016 wall=413s
+kimi-k2.6  hate     B=1   batch  shuffled  rep=0 n=1000 acc=0.697 refused=0.000 missing=0.000 $=0.1341 wall=527s
+kimi-k2.6  hate     B=10  batch  shuffled  rep=0 n=1000 acc=0.713 refused=0.000 missing=0.000 $=0.0705 wall=0s
+kimi-k2.6  hate     B=50  batch  shuffled  rep=0 n=1000 acc=0.701 refused=0.000 missing=0.000 $=0.0650 wall=73s
+wrote results/main/A4__kimi-k2.6__hate.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 2.486}
+kimi-k2.6  offensive B=1   single shuffled  rep=0 n=860 acc=0.793 refused=0.000 missing=0.000 $=0.0917 wall=438s
+kimi-k2.6  offensive B=1   batch  shuffled  rep=0 n=860 acc=0.810 refused=0.000 missing=0.000 $=0.1196 wall=428s
+kimi-k2.6  offensive B=10  batch  shuffled  rep=0 n=860 acc=0.822 refused=0.000 missing=0.000 $=0.0608 wall=0s
+kimi-k2.6  offensive B=50  batch  shuffled  rep=0 n=860 acc=0.812 refused=0.000 missing=0.000 $=0.0559 wall=58s
+wrote results/main/A4__kimi-k2.6__offensive.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 2.75}
+kimi-k2.6  amazon   B=1   single shuffled  rep=0 n=1000 acc=0.589 refused=0.000 missing=0.000 $=0.1154 wall=518s
+kimi-k2.6  amazon   B=1   batch  shuffled  rep=0 n=1000 acc=0.591 refused=0.000 missing=0.000 $=0.1529 wall=425s
+kimi-k2.6  amazon   B=10  batch  shuffled  rep=0 n=1000 acc=0.595 refused=0.000 missing=0.000 $=0.0732 wall=0s
+kimi-k2.6  amazon   B=50  batch  shuffled  rep=0 n=1000 acc=0.603 refused=0.000 missing=0.000 $=0.0662 wall=71s
+wrote results/main/A4__kimi-k2.6__amazon.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'kimi-k2.6': 3.084}
+KIMI A DONE Fri Nov  6 16:25:51 CST 2026

@@ -1,0 +1,81 @@
+contrast,model,task,acc_from,acc_to,diff_pp,p
+format: single -> batch-format B=1,ds-flash,agnews,0.889,0.885,-0.40000000000000036,0.5966148958541453
+context: batch-format B=1 -> B=10,ds-flash,agnews,0.885,0.891,0.6000000000000005,0.4613911821367651
+context: batch-format B=1 -> B=50,ds-flash,agnews,0.885,0.908,2.300000000000002,0.001402688503695515
+context: batch-format B=1 -> B=100,ds-flash,agnews,0.885,0.912,2.7000000000000024,0.0002685401188191605
+total: single -> B=10,ds-flash,agnews,0.889,0.891,0.20000000000000018,0.880395821280672
+total: single -> B=50,ds-flash,agnews,0.889,0.908,1.9000000000000017,0.006608822842281368
+format: single -> batch-format B=1,ds-flash,emotion,0.538,0.569,3.0999999999999917,0.002653786057228506
+context: batch-format B=1 -> B=10,ds-flash,emotion,0.569,0.565,-0.40000000000000036,0.7825558614117515
+context: batch-format B=1 -> B=50,ds-flash,emotion,0.569,0.574,0.5000000000000004,0.7140263124847868
+context: batch-format B=1 -> B=100,ds-flash,emotion,0.569,0.582,1.3000000000000012,0.2712483377594047
+total: single -> B=10,ds-flash,emotion,0.538,0.565,2.6999999999999913,0.021702953562836327
+total: single -> B=50,ds-flash,emotion,0.538,0.574,3.599999999999992,0.002193533062539539
+format: single -> batch-format B=1,ds-flash,hate,0.706,0.741,3.500000000000003,0.0011510187915276821
+context: batch-format B=1 -> B=10,ds-flash,hate,0.741,0.707,-3.400000000000003,0.027932078686906267
+context: batch-format B=1 -> B=50,ds-flash,hate,0.741,0.738,-0.30000000000000027,0.8878609477142521
+context: batch-format B=1 -> B=100,ds-flash,hate,0.741,0.728,-1.3000000000000012,0.4395941254506646
+total: single -> B=10,ds-flash,hate,0.706,0.707,0.10000000000000009,1.0
+total: single -> B=50,ds-flash,hate,0.706,0.738,3.200000000000003,0.04787882023439061
+format: single -> batch-format B=1,ds-flash,yelp,0.674,0.688,1.3999999999999901,0.13538510529943087
+context: batch-format B=1 -> B=10,ds-flash,yelp,0.688,0.674,-1.3999999999999901,0.16544051293398976
+context: batch-format B=1 -> B=50,ds-flash,yelp,0.688,0.677,-1.0999999999999899,0.31972732070026527
+context: batch-format B=1 -> B=100,ds-flash,yelp,0.688,0.682,-0.5999999999999894,0.6024122776961505
+total: single -> B=10,ds-flash,yelp,0.674,0.674,0.0,1.0
+total: single -> B=50,ds-flash,yelp,0.674,0.677,0.30000000000000027,0.858119373263591
+format: single -> batch-format B=1,glm-air,agnews,0.9,0.925,2.500000000000002,0.2265625
+context: batch-format B=1 -> B=10,glm-air,agnews,0.925,0.915,-1.0000000000000009,0.7265625
+context: batch-format B=1 -> B=50,glm-air,agnews,0.925,0.93,0.5000000000000004,1.0
+total: single -> B=10,glm-air,agnews,0.9,0.915,1.5000000000000013,0.6072387695312499
+total: single -> B=50,glm-air,agnews,0.9,0.93,3.0000000000000027,0.1795654296875
+format: single -> batch-format B=1,glm-air,emotion,0.615,0.615,0.0,1.0
+context: batch-format B=1 -> B=10,glm-air,emotion,0.615,0.64,2.500000000000002,0.38331031799316406
+context: batch-format B=1 -> B=50,glm-air,emotion,0.615,0.65,3.500000000000003,0.21003961563110352
+total: single -> B=10,glm-air,emotion,0.615,0.64,2.500000000000002,0.47312965989112854
+total: single -> B=50,glm-air,emotion,0.615,0.65,3.500000000000003,0.31050465907901537
+format: single -> batch-format B=1,glm-air,hate,0.67,0.73,5.999999999999995,0.0806904677519924
+context: batch-format B=1 -> B=10,glm-air,hate,0.73,0.785,5.500000000000005,0.12628947438543037
+context: batch-format B=1 -> B=50,glm-air,hate,0.73,0.755,2.500000000000002,0.6304564917867981
+total: single -> B=10,glm-air,hate,0.67,0.785,11.5,0.0021901868838920535
+total: single -> B=50,glm-air,hate,0.67,0.755,8.499999999999996,0.05681467793283902
+format: single -> batch-format B=1,glm-air,yelp,0.59,0.635,4.5000000000000036,0.14961278438568115
+context: batch-format B=1 -> B=10,glm-air,yelp,0.635,0.68,4.5000000000000036,0.16275565745308995
+context: batch-format B=1 -> B=50,glm-air,yelp,0.635,0.675,4.0000000000000036,0.27995623852893914
+total: single -> B=10,glm-air,yelp,0.59,0.68,9.000000000000007,0.007915897334896727
+total: single -> B=50,glm-air,yelp,0.59,0.675,8.500000000000007,0.027008317653722358
+format: single -> batch-format B=1,kimi-k2.6,agnews,0.88,0.88,0.0,1.0
+context: batch-format B=1 -> B=10,kimi-k2.6,agnews,0.88,0.904,2.400000000000002,0.007537841796875
+context: batch-format B=1 -> B=50,kimi-k2.6,agnews,0.88,0.914,3.400000000000003,0.002315700054168701
+total: single -> B=10,kimi-k2.6,agnews,0.88,0.904,2.400000000000002,0.028959274291992188
+total: single -> B=50,kimi-k2.6,agnews,0.88,0.914,3.400000000000003,0.005988120567053557
+format: single -> batch-format B=1,kimi-k2.6,emotion,0.602,0.596,-0.6000000000000005,0.735878800856881
+context: batch-format B=1 -> B=10,kimi-k2.6,emotion,0.596,0.6,0.40000000000000036,0.8938530948350216
+context: batch-format B=1 -> B=50,kimi-k2.6,emotion,0.596,0.632,3.600000000000003,0.0327657590988232
+total: single -> B=10,kimi-k2.6,emotion,0.602,0.6,-0.20000000000000018,1.0
+total: single -> B=50,kimi-k2.6,emotion,0.602,0.632,3.0000000000000027,0.07692583360960925
+format: single -> batch-format B=1,kimi-k2.6,hate,0.72,0.702,-1.8000000000000016,0.2892437471090205
+context: batch-format B=1 -> B=10,kimi-k2.6,hate,0.702,0.738,3.600000000000003,0.06934604368506445
+context: batch-format B=1 -> B=50,kimi-k2.6,hate,0.702,0.738,3.600000000000003,0.1172129419763146
+total: single -> B=10,kimi-k2.6,hate,0.72,0.738,1.8000000000000016,0.41191007368097615
+total: single -> B=50,kimi-k2.6,hate,0.72,0.738,1.8000000000000016,0.4306890663081313
+format: single -> batch-format B=1,kimi-k2.6,yelp,0.628,0.686,5.800000000000005,0.0010795155066662817
+context: batch-format B=1 -> B=10,kimi-k2.6,yelp,0.686,0.66,-2.6000000000000023,0.10478948242660333
+context: batch-format B=1 -> B=50,kimi-k2.6,yelp,0.686,0.672,-1.4000000000000012,0.4187541882690154
+total: single -> B=10,kimi-k2.6,yelp,0.628,0.66,3.200000000000003,0.1253456971884925
+total: single -> B=50,kimi-k2.6,yelp,0.628,0.672,4.400000000000004,0.03520020021770477
+"order: shuffled -> label-sorted, B=10",ds-flash,agnews,0.891,0.847,-4.400000000000004,1.0507232717140574e-08
+"order: shuffled -> label-sorted, B=50",ds-flash,agnews,0.908,0.874,-3.400000000000003,1.163555804595262e-06
+"order: shuffled -> label-sorted, B=10",ds-flash,amazon,0.6,0.575,-2.500000000000002,0.026075562235663666
+"order: shuffled -> label-sorted, B=50",ds-flash,amazon,0.606,0.622,1.6000000000000014,0.16705111417380242
+"order: shuffled -> label-sorted, B=10",ds-flash,imdb,0.956,0.951,-0.5000000000000004,0.38331031799316406
+"order: shuffled -> label-sorted, B=50",ds-flash,imdb,0.959,0.952,-0.7000000000000006,0.1670684814453125
+"order: shuffled -> label-sorted, B=10",ds-flash,yelp,0.674,0.638,-3.600000000000003,0.00022250112957580403
+"order: shuffled -> label-sorted, B=50",ds-flash,yelp,0.677,0.66,-1.7000000000000015,0.07116340869529121
+"order: shuffled -> label-sorted, B=10",kimi-k2.6,agnews,0.897,0.832,-6.500000000000005,5.057803134644878e-17
+"order: shuffled -> label-sorted, B=50",kimi-k2.6,agnews,0.908,0.854,-5.400000000000005,6.253851603243987e-14
+"order: shuffled -> label-sorted, B=10",kimi-k2.6,amazon,0.595,0.569,-2.6000000000000023,0.029171626999401647
+"order: shuffled -> label-sorted, B=50",kimi-k2.6,amazon,0.604,0.633,2.9000000000000026,0.011275812317410646
+"order: shuffled -> label-sorted, B=10",kimi-k2.6,imdb,0.96,0.953,-0.7000000000000006,0.18924713134765625
+"order: shuffled -> label-sorted, B=50",kimi-k2.6,imdb,0.961,0.954,-0.7000000000000006,0.09228515625
+"order: shuffled -> label-sorted, B=10",kimi-k2.6,yelp,0.678,0.647,-3.1000000000000028,0.003529272035686486
+"order: shuffled -> label-sorted, B=50",kimi-k2.6,yelp,0.685,0.705,1.9999999999999907,0.095253411432518

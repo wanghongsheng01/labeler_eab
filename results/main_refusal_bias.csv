@@ -1,0 +1,7 @@
+task,order,shift,dropped
+agnews,shuffled,0.37731958762886597,30
+agnews,keyed,0.7833333333333359,40
+agnews,sorted,3.075,40
+hate,shuffled,0.08163265306122547,20
+hate,keyed,0.020408163265306367,20
+hate,sorted,1.2040816326530646,20

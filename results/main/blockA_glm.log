@@ -1,0 +1,51 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+glm-5.3-flash imdb     B=1   single shuffled  rep=0 n=1000 acc=0.962 refused=0.000 missing=0.000 $=0.0000 wall=441s
+glm-5.3-flash imdb     B=1   batch  shuffled  rep=0 n=1000 acc=0.960 refused=0.000 missing=0.000 $=0.0000 wall=471s
+glm-5.3-flash imdb     B=10  batch  shuffled  rep=0 n=1000 acc=0.955 refused=0.000 missing=0.000 $=0.0000 wall=0s
+glm-5.3-flash imdb     B=50  batch  shuffled  rep=0 n=1000 acc=0.959 refused=0.000 missing=0.000 $=0.0000 wall=40s
+wrote results/main/A4__glm-5.3-flash__imdb.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0}
+glm-5.3-flash yelp     B=1   single shuffled  rep=0 n=1000 acc=0.642 refused=0.000 missing=0.000 $=0.0000 wall=408s
+glm-5.3-flash yelp     B=1   batch  shuffled  rep=0 n=1000 acc=0.662 refused=0.000 missing=0.000 $=0.0000 wall=404s
+glm-5.3-flash yelp     B=10  batch  shuffled  rep=0 n=1000 acc=0.677 refused=0.000 missing=0.000 $=0.0000 wall=0s
+glm-5.3-flash yelp     B=50  batch  shuffled  rep=0 n=1000 acc=0.682 refused=0.000 missing=0.000 $=0.0000 wall=83s
+wrote results/main/A4__glm-5.3-flash__yelp.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0}
+glm-5.3-flash agnews   B=1   single shuffled  rep=0 n=1000 acc=0.863 refused=0.004 missing=0.000 $=0.0000 wall=441s
+ERR glm-5.3-flash agnews 1 0 1666 429 {"error":{"code":"rate_limit_exceeded","message":"您的账户已达到速率限制，请您控制请求频率","param":null,"type":"rate_limit_exceeded"}}
+
+ERR glm-5.3-flash agnews 1 0 1939 429 {"error":{"code":"rate_limit_exceeded","message":"您的账户已达到速率限制，请您控制请求频率","param":null,"type":"rate_limit_exceeded"}}
+
+glm-5.3-flash agnews   B=1   batch  shuffled  rep=0 n=1000 acc=0.883 refused=0.004 missing=0.006 $=0.0000 wall=764s
+glm-5.3-flash agnews   B=10  batch  shuffled  rep=0 n=1000 acc=0.866 refused=0.030 missing=0.040 $=0.0000 wall=0s
+glm-5.3-flash agnews   B=50  batch  shuffled  rep=0 n=1000 acc=0.731 refused=0.200 missing=0.200 $=0.0000 wall=23s
+INCOMPLETE agnews cells 4 errors 2
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+glm-5.3-flash agnews   B=1   single shuffled  rep=0 n=1000 acc=0.863 refused=0.004 missing=0.000 $=0.0000 wall=0s
+glm-5.3-flash agnews   B=1   batch  shuffled  rep=0 n=1000 acc=0.885 refused=0.004 missing=0.004 $=0.0000 wall=3s
+glm-5.3-flash agnews   B=10  batch  shuffled  rep=0 n=1000 acc=0.866 refused=0.030 missing=0.040 $=0.0000 wall=0s
+glm-5.3-flash agnews   B=50  batch  shuffled  rep=0 n=1000 acc=0.731 refused=0.200 missing=0.200 $=0.0000 wall=0s
+wrote results/main/A4__glm-5.3-flash__agnews.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 2.039, 'qwen2.5-3b': 0.0}
+glm-5.3-flash emotion  B=1   single shuffled  rep=0 n=1000 acc=0.598 refused=0.000 missing=0.000 $=0.0000 wall=599s
+glm-5.3-flash emotion  B=1   batch  shuffled  rep=0 n=1000 acc=0.627 refused=0.000 missing=0.000 $=0.0000 wall=487s
+glm-5.3-flash emotion  B=10  batch  shuffled  rep=0 n=1000 acc=0.605 refused=0.000 missing=0.010 $=0.0000 wall=0s
+glm-5.3-flash emotion  B=50  batch  shuffled  rep=0 n=1000 acc=0.611 refused=0.000 missing=0.000 $=0.0000 wall=33s
+wrote results/main/A4__glm-5.3-flash__emotion.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 2.039, 'qwen2.5-3b': 0.0}
+glm-5.3-flash hate     B=1   single shuffled  rep=0 n=1000 acc=0.708 refused=0.002 missing=0.000 $=0.0000 wall=538s
+glm-5.3-flash hate     B=1   batch  shuffled  rep=0 n=1000 acc=0.725 refused=0.002 missing=0.004 $=0.0000 wall=601s
+glm-5.3-flash hate     B=10  batch  shuffled  rep=0 n=1000 acc=0.727 refused=0.020 missing=0.020 $=0.0000 wall=0s
+glm-5.3-flash hate     B=50  batch  shuffled  rep=0 n=1000 acc=0.657 refused=0.100 missing=0.100 $=0.0000 wall=90s
+wrote results/main/A4__glm-5.3-flash__hate.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 2.039, 'qwen2.5-3b': 0.0}
+glm-5.3-flash offensive B=1   single shuffled  rep=0 n=860 acc=0.808 refused=0.000 missing=0.000 $=0.0000 wall=417s
+glm-5.3-flash offensive B=1   batch  shuffled  rep=0 n=860 acc=0.808 refused=0.000 missing=0.000 $=0.0000 wall=403s
+glm-5.3-flash offensive B=10  batch  shuffled  rep=0 n=860 acc=0.824 refused=0.000 missing=0.000 $=0.0000 wall=0s
+glm-5.3-flash offensive B=50  batch  shuffled  rep=0 n=860 acc=0.816 refused=0.000 missing=0.000 $=0.0000 wall=61s
+wrote results/main/A4__glm-5.3-flash__offensive.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 2.039, 'qwen2.5-3b': 0.0}
+glm-5.3-flash amazon   B=1   single shuffled  rep=0 n=1000 acc=0.579 refused=0.000 missing=0.000 $=0.0000 wall=398s
+glm-5.3-flash amazon   B=1   batch  shuffled  rep=0 n=1000 acc=0.608 refused=0.000 missing=0.000 $=0.0000 wall=453s
+glm-5.3-flash amazon   B=10  batch  shuffled  rep=0 n=1000 acc=0.591 refused=0.000 missing=0.000 $=0.0000 wall=0s
+glm-5.3-flash amazon   B=50  batch  shuffled  rep=0 n=1000 acc=0.600 refused=0.000 missing=0.000 $=0.0000 wall=33s
+wrote results/main/A4__glm-5.3-flash__amazon.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 0.048, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 2.039, 'qwen2.5-3b': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+GLM A DONE Fri Nov  6 17:05:45 CST 2026

@@ -1,0 +1,37 @@
+glm-5.3-flash imdb     B=10  batch  perm1     rep=0 n=1000 acc=0.960 refused=0.000 missing=0.000 $=0.0000 wall=92s
+glm-5.3-flash imdb     B=10  batch  perm2     rep=0 n=1000 acc=0.965 refused=0.000 missing=0.000 $=0.0000 wall=194s
+wrote results/main/P__glm-5.3-flash__imdb.csv spent today: {'glm-5.3-flash': 0.0}
+ERR glm-5.3-flash yelp 10 0 350 429 {"error":{"code":"rate_limit_exceeded","message":"已达到 5 小时的使用上限。您的限额将在 2026-11-05 18:43:32 重置。","param":null,"type":"rate_limit_exceeded"}}
+
+ERR glm-5.3-flash yelp 10 0 1969 429 {"error":{"code":"rate_limit_exceeded","message":"已达到 5 小时的使用上限。您的限额将在 2026-11-05 18:43:32 重置。","param":null,"type":"rate_limit_exceeded"}}
+
+ERR glm-5.3-flash yelp 10 0 776 429 {"error":{"code":"rate_limit_exceeded","message":"已达到 5 小时的使用上限。您的限额将在 2026-11-05 18:43:32 重置。","param":null,"type":"rate_limit_exceeded"}}
+
+ERR glm-5.3-flash yelp 10 0 1123 429 {"error":{"code":"rate_limit_exceeded","message":"已达到 5 小时的使用上限。您的限额将在 2026-11-05 18:43:32 重置。","param":null,"type":"rate_limit_exceeded"}}
+
+glm-5.3-flash yelp     B=10  batch  perm1     rep=0 n=1000 acc=0.641 refused=0.000 missing=0.040 $=0.0000 wall=474s
+glm-5.3-flash yelp     B=10  batch  perm2     rep=0 n=1000 acc=0.664 refused=0.000 missing=0.000 $=0.0000 wall=153s
+INCOMPLETE yelp cells 2 errors 40
+glm-5.3-flash yelp     B=10  batch  perm1     rep=0 n=1000 acc=0.664 refused=0.000 missing=0.000 $=0.0000 wall=38s
+glm-5.3-flash yelp     B=10  batch  perm2     rep=0 n=1000 acc=0.664 refused=0.000 missing=0.000 $=0.0000 wall=0s
+wrote results/main/P__glm-5.3-flash__yelp.csv spent today: {'ds-flash': 1.126, 'glm-5.3-flash': 0.0}
+glm-5.3-flash agnews   B=10  batch  perm1     rep=0 n=1000 acc=0.855 refused=0.040 missing=0.060 $=0.0000 wall=335s
+ERR glm-5.3-flash agnews 10 0 164 429 {"error":{"code":"rate_limit_exceeded","message":"您的账户已达到速率限制，请您控制请求频率","param":null,"type":"rate_limit_exceeded"}}
+
+glm-5.3-flash agnews   B=10  batch  perm2     rep=0 n=1000 acc=0.872 refused=0.030 missing=0.040 $=0.0000 wall=330s
+INCOMPLETE agnews cells 2 errors 10
+glm-5.3-flash agnews   B=10  batch  perm1     rep=0 n=1000 acc=0.855 refused=0.040 missing=0.060 $=0.0000 wall=0s
+glm-5.3-flash agnews   B=10  batch  perm2     rep=0 n=1000 acc=0.882 refused=0.030 missing=0.030 $=0.0000 wall=4s
+wrote results/main/P__glm-5.3-flash__agnews.csv spent today: {'ds-flash': 1.346, 'glm-5.3-flash': 0.0, 'ds-pro': 0.321, 'kimi-k2.6': 0.685}
+glm-5.3-flash emotion  B=10  batch  perm1     rep=0 n=1000 acc=0.607 refused=0.000 missing=0.000 $=0.0000 wall=114s
+glm-5.3-flash emotion  B=10  batch  perm2     rep=0 n=1000 acc=0.611 refused=0.000 missing=0.000 $=0.0000 wall=112s
+wrote results/main/P__glm-5.3-flash__emotion.csv spent today: {'ds-flash': 1.346, 'glm-5.3-flash': 0.0, 'ds-pro': 0.321, 'kimi-k2.6': 0.685}
+glm-5.3-flash hate     B=10  batch  perm1     rep=0 n=1000 acc=0.709 refused=0.020 missing=0.020 $=0.0000 wall=183s
+glm-5.3-flash hate     B=10  batch  perm2     rep=0 n=1000 acc=0.703 refused=0.020 missing=0.020 $=0.0000 wall=137s
+wrote results/main/P__glm-5.3-flash__hate.csv spent today: {'ds-flash': 1.346, 'glm-5.3-flash': 0.0, 'ds-pro': 0.321, 'kimi-k2.6': 0.685}
+glm-5.3-flash offensive B=10  batch  perm1     rep=0 n=860 acc=0.815 refused=0.000 missing=0.000 $=0.0000 wall=90s
+glm-5.3-flash offensive B=10  batch  perm2     rep=0 n=860 acc=0.819 refused=0.000 missing=0.000 $=0.0000 wall=93s
+wrote results/main/P__glm-5.3-flash__offensive.csv spent today: {'ds-flash': 1.346, 'glm-5.3-flash': 0.0, 'ds-pro': 0.321, 'kimi-k2.6': 0.685}
+glm-5.3-flash amazon   B=10  batch  perm1     rep=0 n=1000 acc=0.603 refused=0.000 missing=0.000 $=0.0000 wall=60s
+glm-5.3-flash amazon   B=10  batch  perm2     rep=0 n=1000 acc=0.591 refused=0.000 missing=0.000 $=0.0000 wall=64s
+wrote results/main/P__glm-5.3-flash__amazon.csv spent today: {'ds-flash': 1.346, 'glm-5.3-flash': 0.0, 'ds-pro': 0.321, 'kimi-k2.6': 0.685}
