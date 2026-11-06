@@ -27,7 +27,7 @@ This repository contains the protocol, code, per-tuple outputs, per-call logs an
 | `results/main/<block>__<labeler>__<dataset>.csv.gz` | one row per (tuple, run): `tid, pos, pred, missing, status, usd, in_tok, out_tok, cache_hit, call_lat, finish, served, B_eff, gold, task, model, B, fmt, order, rep` |
 | `results/main/D__*.csv.gz` | Block D: decoded triggers, singleton confirmation, cross-vendor resend |
 | `results/pilot/*.csv.gz` | per-tuple outputs of the pilot study |
-| `results/calls.jsonl.gz` | one JSON line per real API call of the whole study, pilot included (142,461 calls): day, time, labeler, served model, status, tokens, list-price USD, latency |
+| `results/calls.jsonl.gz` | one JSON line per real API call of the whole study, pilot included (199,050 calls): day, time, labeler, served model, status, tokens, list-price USD, latency |
 | `results/main/calls_main.jsonl.gz` | one JSON line per call of the main runs: block, cell, call index, tuple ids in prompt order, request SHA-256, status, served model, finish reason, tokens, cost, latency, vendor error body and raw response; rebuilt by `code/export_calls.py`, which also checks every response against the released labels |
 | `results/*.csv`, `results/*.txt` | the summaries that the paper reports |
 
@@ -74,6 +74,9 @@ The added labelers of Section V-E use `gateway` (GPT-6, Claude) and `local`, a l
 SHA-256 `dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db` and
 `539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a`; pass the first shard as `--model`); `code/run_gpu7b.sh`
 runs its block on all seven datasets.
+The only rerun flip of these greedy labelers (Qwen2.5-3B, Hate, three tuples of one call) comes from the server's
+prompt-prefix cache: the first copy followed the availability probe of `main_runs.py`; `code/prefix_probe.py` resends
+the call after the probe and after a Hate call and reproduces both answers.
 
 Then, for example:
 
