@@ -65,7 +65,7 @@ def _load_spent():
 _load_spent()
 
 
-def request(model, messages, temperature=0.0, max_tokens=512, rep=0):
+def request(model, messages, temperature=0.0, max_tokens=512, rep=0, extra=None):
     """Request body and cache key (SHA-256 of provider, body and repetition index) of a call."""
     prov, name = MODELS[model]
     kw = {k: v for k, v in FIXED.get(model, {}).items() if k != "temperature"}
@@ -77,12 +77,14 @@ def request(model, messages, temperature=0.0, max_tokens=512, rep=0):
         body = {"model": name, "messages": messages, "temperature": temperature, "max_tokens": max_tokens, **kw}
     if temperature is None:  # the model rejects the parameter; its default sampling is used
         body.pop("temperature")
+    if extra:  # e.g. response_format for structured output; absent keys leave earlier cache keys unchanged
+        body.update(extra)
     return prov, body, responses, hashlib.sha256(json.dumps([prov, body, rep], sort_keys=True).encode()).hexdigest()
 
 
-def chat(model, messages, temperature=0.0, max_tokens=512, rep=0, retries=8):
+def chat(model, messages, temperature=0.0, max_tokens=512, rep=0, retries=8, extra=None):
     """Returns dict(text, usage, usd, latency, status) where status is 'ok' or 'refused'."""
-    prov, body, responses, key = request(model, messages, temperature, max_tokens, rep)
+    prov, body, responses, key = request(model, messages, temperature, max_tokens, rep, extra)
     path = os.path.join(CACHE_DIR, key[:2], key + ".json")
     if os.path.exists(path) and os.path.getmtime(path) >= CACHE_AFTER:
         return json.load(open(path))

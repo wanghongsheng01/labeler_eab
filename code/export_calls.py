@@ -21,7 +21,7 @@ from tasks import TASKS, load
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M = f"{HERE}/results/main"
-BLOCKS = ("A", "A4", "B", "B10", "B10s", "R", "R10", "P", "N", "I", "R2", "K", "X", "S", "L")
+BLOCKS = ("A", "A4", "B", "B10", "B10s", "R", "R10", "P", "N", "I", "R2", "K", "X", "S", "L", "TE", "TZ", "TJ")
 
 
 def prompt(fmt, spec, texts):
@@ -29,6 +29,10 @@ def prompt(fmt, spec, texts):
         return pilot.prompt_single(spec, texts[0]), 2000
     if fmt == "json":
         return pilot.prompt_json(spec, texts), 60 * len(texts) + 200
+    if fmt == "batcher":
+        return pilot.prompt_batcher(spec, texts), 40 * len(texts) + 200
+    if fmt == "semajson":
+        return pilot.prompt_semajson(spec, texts), 60 * len(texts) + 200
     f = {"batchind": pilot.prompt_batch_ind, "batchxml": pilot.prompt_batch_xml}.get(fmt, pilot.prompt_batch)
     return f(spec, texts), 60 * len(texts) + 200
 
@@ -42,15 +46,16 @@ def main():
                 continue
             d = pd.read_csv(path)
             for (model, task, B, fmt, order, rep), x in d.groupby(["model", "task", "B", "fmt", "order", "rep"]):
-                spec, df = TASKS[task], load(task)
+                spec, df = pilot.TASKS[task], pilot.load(task)
                 tids = pilot.order_of(df, order, len(x), task)
                 released = x.set_index("tid").pred
                 for c, i in enumerate(range(0, len(tids), int(B))):
                     g = [int(t) for t in tids[i:i + int(B)]]
                     msgs, mt = prompt(fmt, spec, [df.text[t] for t in g])
-                    key = llm.request(model, msgs, max_tokens=mt, rep=int(rep))[3]
+                    extra = {"response_format": {"type": "json_object"}} if fmt == "semajson" else None
+                    key = llm.request(model, msgs, max_tokens=mt, rep=int(rep), extra=extra)[3]
                     try:
-                        r = llm.chat(model, msgs, max_tokens=mt, rep=int(rep))
+                        r = llm.chat(model, msgs, max_tokens=mt, rep=int(rep), extra=extra)
                     except RuntimeError:  # not in the cache: the call failed in the original run (pred = -3)
                         r = {"status": "error", "text": None}
                         n_miss += 1
@@ -62,6 +67,10 @@ def main():
                         preds = [pilot.parse(r["text"], spec["labels"])]
                     elif fmt == "json":
                         preds = pilot.parse_json(r["text"], spec["labels"], len(g))[0]
+                    elif fmt == "batcher":
+                        preds = pilot.parse_batcher(r["text"], len(g))[0]
+                    elif fmt == "semajson":
+                        preds = pilot.parse_semajson(r["text"], spec["labels"], len(g))[0]
                     else:
                         found = dict((int(k), v) for k, v in re.findall(r"\[(\d+)\]\s*([^\n]+)", r["text"]))
                         preds = [pilot.parse(found.get(j + 1, ""), spec["labels"]) for j in range(len(g))]

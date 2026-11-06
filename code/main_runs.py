@@ -50,6 +50,20 @@ def block_cells(block, n):
     if block == "B10s":  # reduced Block B for the most expensive labeler: four random orders would cost too much
         for order in ["shuffled", "shuffled1", "shuffled2", "sorted", "keyed"]:
             yield 10, "batch", order
+    # blocks added on 2026-11-06: other task types and the batch templates of published systems
+    if block == "TE":  # entity matching (abtbuy): our template and BatchER's template
+        for fmt in ["batch", "batcher"]:
+            for order in ["shuffled", "shuffled1", "sorted", "keyed"]:
+                yield 10, fmt, order
+            yield 10, fmt, "shuffled", 1
+    if block == "TZ":  # a non-English task (amazon_zh)
+        for order in ["shuffled", "shuffled1", "sorted", "keyed"]:
+            yield 10, "batch", order
+        yield 10, "batch", "shuffled", 1
+    if block == "TJ":  # Sema-style structured-output (JSON array) batch template
+        for order in ["shuffled", "shuffled1", "sorted"]:
+            yield 10, "semajson", order
+        yield 10, "semajson", "shuffled", 1
     if block == "L":  # compact block for the slow local open-weight labeler: composition, order, position and rerun
         for order in ["shuffled", "shuffled1", "sorted", "keyed", "perm1"]:
             yield 10, "batch", order

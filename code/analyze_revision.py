@@ -67,28 +67,41 @@ Pm = L("P__*.csv")
 
 
 # --- H1 -----------------------------------------------------------------------------------------------------------
+def flip(a, b):
+    """Label change between two runs, counted only where both runs gave a valid label (unparsed -1, refused -2 and
+    failed -3 answers are not labels); NaN otherwise."""
+    a, b = np.asarray(a, float), np.asarray(b, float)
+    return np.where((a >= 0) & (b >= 0), (a != b).astype(float), np.nan)
+
+
+def masked_ci(v, cl):
+    k = ~np.isnan(v)
+    return cluster_mean_ci(v[k], cl[k])
+
+
 def h1():
     rows = []
     for (m, t, b), x in Bk.groupby(["model", "task", "B"]):
         df = load(t)
         piv = x.pivot_table(index="tid", columns="order", values="pred", aggfunc="first")
-        n = len(piv); ok = piv["shuffled"] >= -1
-        comp = np.mean([((piv[o] != piv["shuffled"]) & (piv[o] >= -1)).values for o in RND[1:]], axis=0)
+        n = len(piv)
+        with np.errstate(all="ignore"):
+            comp = np.nanmean([flip(piv[o], piv["shuffled"]) for o in RND[1:]], axis=0)
         cl = batch_id(df, "shuffled", n, b).reindex(piv.index).values
         row = dict(model=m, task=t, B=b, n=n)
-        row["comp"], row["comp_lo"], row["comp_hi"] = cluster_mean_ci(comp[ok.values], cl[ok.values])
+        row["comp"], row["comp_lo"], row["comp_hi"] = masked_ci(comp, cl)
         rr = Rr[(Rr.model == m) & (Rr.task == t) & (Rr.B == b)]
         if len(rr):
             r1 = rr.set_index("tid").pred.reindex(piv.index)
-            rer = ((r1 != piv["shuffled"]) & (r1 >= -1)).values.astype(float)
-            row["rerun"], row["rerun_lo"], row["rerun_hi"] = cluster_mean_ci(rer[ok.values], cl[ok.values])
-            d = comp - rer
-            row["diff"], row["diff_lo"], row["diff_hi"] = cluster_mean_ci(d[ok.values], cl[ok.values])
+            rer = flip(r1, piv["shuffled"])
+            row["rerun"], row["rerun_lo"], row["rerun_hi"] = masked_ci(rer, cl)
+            row["diff"], row["diff_lo"], row["diff_hi"] = masked_ci(comp - rer, cl)
         pm = Pm[(Pm.model == m) & (Pm.task == t) & (Pm.B == b)] if len(Pm) else Pm
         if len(pm):
             pp = pm.pivot_table(index="tid", columns="order", values="pred", aggfunc="first").reindex(piv.index)
-            pos = np.mean([((pp[o] != piv["shuffled"]) & (pp[o] >= -1)).values for o in ["perm1", "perm2"]], axis=0)
-            row["pos"], row["pos_lo"], row["pos_hi"] = cluster_mean_ci(pos[ok.values], cl[ok.values])
+            with np.errstate(all="ignore"):
+                pos = np.nanmean([flip(pp[o], piv["shuffled"]) for o in ["perm1", "perm2"]], axis=0)
+            row["pos"], row["pos_lo"], row["pos_hi"] = masked_ci(pos, cl)
         rows.append(row)
     C = pd.DataFrame(rows); C.to_csv(f"{R}/rev_composition.csv", index=False)
     h = C.dropna(subset=["rerun"])

@@ -1,0 +1,8 @@
+# Python 3.9+; versions used for the paper
+numpy==2.0.2
+pandas==2.3.3
+pyarrow==21.0.0
+scipy==1.13.1
+matplotlib==3.9.4
+requests==2.32.5
+PyMuPDF==1.26.5  # only for checking the paper's figures

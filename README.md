@@ -36,9 +36,13 @@ This repository contains the protocol, code, per-tuple outputs, per-call logs an
 ## Reproduce the paper without API keys (minutes on a laptop)
 
 ```bash
-pip install numpy scipy pandas matplotlib pyarrow requests
+pip install -r requirements.txt
 gunzip -k results/main/*.gz results/pilot/*.gz
 python code/fetch_data.py          # public test splits -> data/raw/ (needed for neighbor and trigger analyses)
+# Block T data -> data_ext/ (read by code/tasks_ext.py):
+#   Abt-Buy (DeepMatcher, textual): tableA.csv, tableB.csv, test.csv from
+#     http://pages.cs.wisc.edu/~anhai/data1/deepmatcher_data/Textual/Abt-Buy/exp_data/  saved as abtbuy_<name>.csv
+#   Chinese Amazon reviews: test.jsonl of the Hugging Face dataset SetFit/amazon_reviews_multi_zh saved as amazon_zh_test.jsonl
 cd code
 python analyze_main.py             # H1, H2  -> results/main_composition.csv, results/main_order.csv
 python analyze_main_a.py           # H4      -> results/main_batchcurve.csv, results/main_decomposition.csv

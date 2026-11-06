@@ -12,6 +12,13 @@ import numpy as np, pandas as pd
 from tasks import TASKS, load  # read-only import: dataset specs and samples
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import llm
+from tasks_ext import TASKS_EXT, load_ext  # entity matching and a non-English task (2026-11-06)
+TASKS.update(TASKS_EXT)
+_load_base = load
+
+
+def load(name, *a, **k):
+    return load_ext(name) if name in TASKS_EXT else _load_base(name, *a, **k)
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "results", "pilot")
@@ -60,6 +67,48 @@ def prompt_batch_xml(spec, texts):
             {"role": "user", "content": f"{spec['question']}\nBelow are {len(texts)} texts, each enclosed in <text id=\"k\"> ... </text>. "
                                         f"For each text, answer with exactly one of: {opts}.\n"
                                         f"Return one line per text in the form `[k] answer`, where k is the text's id, nothing else.\n\n{body}"}]
+
+
+def prompt_batcher(spec, texts):
+    """BatchER's question-batching prompt for entity matching (Fan et al., ICDE 2024; github.com/fmh1art/BatchER,
+    src/prompting.py and exp.py), zero-shot: no demonstrations. Each text holds "Product A is ...\nProduct B is ..."."""
+    task = "When determining whether two Products are the same, you should only focus on critical properties and overlook noisy factors.\n"
+    qs = "\n".join(f"Question {i + 1}:\n " + t.replace("\n", "\n ") for i, t in enumerate(texts))
+    sent = "question above" if len(texts) == 1 else f"above {len(texts)} questions"
+    trailer = (f"\nUse domain knowledge of Products to help understand the text and answer the {sent} in the format: "
+               "For Question i, Yes, Product A and Product B are the same product./No, Product A and Product B are "
+               "different products. For Question i+1, (repeat the above procedures)")
+    return [{"role": "user", "content": "\n\n".join([task, qs + trailer])}]
+
+
+def parse_batcher(text, n):
+    found = {int(k): v.lower() for k, v in re.findall(r"Question\s*(\d+)\s*[,:.]?\s*(Yes|No)", text, flags=re.I)}
+    return [(1 if found[j + 1] == "yes" else 0) if (j + 1) in found else -1 for j in range(n)], \
+           [(j + 1) not in found for j in range(n)]
+
+
+def prompt_semajson(spec, texts):
+    """Sema-style batch prompt (Qi et al., PVLDB 19(11), 2026): the tuples are passed as a JSON array and the API's
+    structured output forces a JSON array of results of the same length."""
+    opts = ", ".join(spec["labels"])
+    items = json.dumps([{"id": i + 1, "text": t} for i, t in enumerate(texts)], ensure_ascii=False)
+    return [{"role": "system", "content": "You are a careful data annotator. Respond in JSON."},
+            {"role": "user", "content": f"{spec['question']} Answer with exactly one of: {opts}.\n"
+                                        f"Input (a JSON array of {len(texts)} items):\n{items}\n\n"
+                                        f'Return a JSON object {{"results": [...]}} whose array has exactly {len(texts)} '
+                                        f"answers, one per item, in input order."}]
+
+
+def parse_semajson(text, labels, n):
+    try:
+        t = text.strip()
+        m = re.search(r"\{.*\}", t, flags=re.S)
+        res = json.loads(m.group(0) if m else t)["results"]
+        if len(res) != n:
+            return [-1] * n, [True] * n
+        return [parse(str(r), labels) for r in res], [False] * n
+    except Exception:
+        return [-1] * n, [True] * n
 
 
 def prompt_json(spec, texts):
@@ -131,6 +180,15 @@ def run_cell(model, task, B, fmt, order, rep, n):
                 r = llm.chat(model, prompt_single(spec, texts[0]), max_tokens=2000, rep=rep)
                 preds = [parse(r["text"], spec["labels"])] if r["status"] == "ok" else [-2]
                 miss = [False]
+            elif fmt == "batcher":
+                r = llm.chat(model, prompt_batcher(spec, texts), max_tokens=40 * len(g) + 200, rep=rep)
+                preds, miss = parse_batcher(r["text"], len(g))
+                if r["status"] != "ok": preds = [-2] * len(g)
+            elif fmt == "semajson":
+                r = llm.chat(model, prompt_semajson(spec, texts), max_tokens=60 * len(g) + 200, rep=rep,
+                             extra={"response_format": {"type": "json_object"}})
+                preds, miss = parse_semajson(r["text"], spec["labels"], len(g))
+                if r["status"] != "ok": preds = [-2] * len(g)
             elif fmt == "json":
                 r = llm.chat(model, prompt_json(spec, texts), max_tokens=60 * len(g) + 200, rep=rep)
                 preds, miss = parse_json(r["text"], spec["labels"], len(g))

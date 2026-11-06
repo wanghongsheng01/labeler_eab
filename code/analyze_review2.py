@@ -193,6 +193,44 @@ def block_s():
           f"p {2 * norm.sf(abs(m / se)):.3f}; tuples with an agency {src.iloc[idx].notna().mean():.3f}")
 
 
+
+def twoway():
+    """Robustness of H1 (32/35) and H2 (15/35) to two-way clustering (Cameron-Gelbach-Miller): tuples share calls in
+    the canonical grouping and in the grouping they are compared with."""
+    import analyze_revision as AR
+
+    def se2(d, g1, g2):
+        d = np.asarray(d, float); k = ~np.isnan(d); d, g1, g2 = d[k], np.asarray(g1)[k], np.asarray(g2)[k]
+        e = d - d.mean(); n = len(d)
+        v = lambda g: (pd.Series(e).groupby(g).sum() ** 2).sum() / n ** 2
+        g12 = pd.Series(list(zip(g1, g2))).astype(str).values
+        return d.mean(), np.sqrt(max(v(g1) + v(g2) - v(g12), v(g1), v(g2)))
+    rows = []
+    for (m, t, b), x in AR.Bk.groupby(["model", "task", "B"]):
+        df = load(t)
+        piv = x.pivot_table(index="tid", columns="order", values="pred", aggfunc="first")
+        gold = x.groupby("tid").gold.first().loc[piv.index]; n = len(piv)
+        cid = lambda o: pd.Series({tid: i // b for i, tid in enumerate(pilot.order_of(df, o, n))}).reindex(piv.index).values
+        c0, c1 = cid("shuffled"), cid("shuffled1")
+        rr = AR.Rr[(AR.Rr.model == m) & (AR.Rr.task == t) & (AR.Rr.B == b)]
+        if len(rr):
+            r1 = rr.set_index("tid").pred.reindex(piv.index)
+            with np.errstate(all="ignore"):
+                comp = np.nanmean([AR.flip(piv[o], piv["shuffled"]) for o in RND[1:]], axis=0)
+            mu, se = se2(comp - AR.flip(r1, piv["shuffled"]), c0, c1)
+            rows.append(dict(test="H1", model=m, task=t, B=b, est=mu, z=mu / se))
+        base = np.mean([(piv[o] == gold).values for o in RND], axis=0)
+        mu, se = se2((piv["sorted"] == gold).values - base, cid("sorted"), c0)
+        rows.append(dict(test="H2", model=m, task=t, B=b, est=100 * mu, z=mu / se))
+    D = pd.DataFrame(rows); D["p"] = 2 * norm.sf(D.z.abs())
+    h1 = D[D.test == "H1"]; h2 = D[D.test == "H2"].copy()
+    p = h2.p.values; o = np.argsort(p); adj = np.empty(len(p))
+    adj[o] = np.minimum(1, np.maximum.accumulate((len(p) - np.arange(len(p))) * p[o])); h2["p_holm"] = adj
+    print(f"two-way clustering: H1 diff > 0 at 95% (one-sided z>1.645) in {(h1.z > 1.645).sum()}/{len(h1)} cells; "
+          f"H2 sorted Holm-significant (35-cell family) in {(h2.p_holm < .05).sum()}/{len(h2)} cells")
+    D.to_csv(f"{R}/rev2_twoway.csv", index=False)
+
+
 if __name__ == "__main__":
-    for w in sys.argv[1:] or ["template", "h2_orig", "contrast", "gt_subsets", "heldout", "glm", "block_k", "block_x", "block_s"]:
+    for w in sys.argv[1:] or ["template", "h2_orig", "contrast", "gt_subsets", "heldout", "glm", "block_k", "block_x", "block_s", "twoway"]:
         print(f"\n===== {w}"); globals()[w]()

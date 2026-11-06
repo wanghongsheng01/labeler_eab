@@ -20,7 +20,7 @@ rng = np.random.default_rng(0)
 
 
 def files(model):
-    return [f for f in glob.glob(f"{M}/*__{model}__*.csv")]
+    return [f for f in glob.glob(f"{M}/*__{model}__*.csv") if os.path.basename(f).split("__")[0] in ("B10", "B10s", "R10", "P", "L")]
 
 
 def boot(v, cl, n=2000):
@@ -28,7 +28,7 @@ def boot(v, cl, n=2000):
     s, c = df["sum"].values, df["count"].values
     idx = rng.integers(0, len(s), (n, len(s)))
     b = s[idx].sum(1) / c[idx].sum(1)
-    return v.mean(), np.percentile(b, 2.5), np.percentile(b, 97.5)
+    return np.nanmean(v), np.percentile(b, 2.5), np.percentile(b, 97.5)
 
 
 def zdiff(ok_o, base, cl):
@@ -55,19 +55,22 @@ def main():
             canon = piv["shuffled"]
             cl = pd.Series({tid: i // 10 for i, tid in enumerate(pilot.order_of(df, "shuffled", n))}).reindex(piv.index).values
             rnd = [o for o in ["shuffled", "shuffled1", "shuffled2", "shuffled3"] if o in piv]
-            ok = canon >= -1
-            comp_v = np.mean([((piv[o] != canon) & ok & (piv[o] >= -1)).values for o in rnd[1:]], axis=0)
+            ok = canon >= 0  # valid labels only (unparsed, refused and failed answers are not labels)
+            fl = lambda a, b: np.where((a >= 0) & (b >= 0), (a != b).astype(float), np.nan)
+            with np.errstate(all="ignore"):
+                comp_v = np.nanmean([fl(piv[o].values, canon.values) for o in rnd[1:]], axis=0)
             r = dict(model=model, task=t, n=n, acc=float((canon == gold).mean()), random_orders=len(rnd))
             r["comp"], r["comp_lo"], r["comp_hi"] = boot(comp_v, cl)
             rr = x[x.rep == 1]
             if len(rr):
                 rv = rr.set_index("tid").pred.reindex(piv.index)
-                rer = ((rv != canon) & ok & (rv >= -1)).values.astype(float)
+                rer = fl(rv.values, canon.values)
                 r["rerun"], r["rerun_lo"], r["rerun_hi"] = boot(rer, cl)
                 r["diff"], r["diff_lo"], r["diff_hi"] = boot(comp_v - rer, cl)
             if "perm1" in piv:
-                pv = np.mean([((piv[o] != canon) & ok & (piv[o] >= -1)).values for o in ["perm1", "perm2"] if o in piv], axis=0)
-                r["pos"] = pv.mean()
+                with np.errstate(all="ignore"):
+                    pv = np.nanmean([fl(piv[o].values, canon.values) for o in ["perm1", "perm2"] if o in piv], axis=0)
+                r["pos"] = np.nanmean(pv)
             base = np.mean([(piv[o] == gold).values for o in rnd], axis=0)
             for o in ["sorted", "keyed"]:
                 if o in piv:

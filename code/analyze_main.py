@@ -29,15 +29,15 @@ comp, order = [], []
 for (m, t, b), x in B.groupby(["model", "task", "B"]):
     piv = x.pivot_table(index="tid", columns="order", values="pred", aggfunc="first")
     gold = x.groupby("tid").gold.first().loc[piv.index]
-    ok = piv["shuffled"] >= -1  # tuples answered in the canonical run (refused ones excluded)
-    ch = np.concatenate([((piv[o] != piv["shuffled"]) & ok & (piv[o] >= -1)).values
+    ok = piv["shuffled"] >= 0  # valid labels only: unparsed (-1), refused (-2) and failed (-3) answers are not labels
+    ch = np.concatenate([((piv[o] != piv["shuffled"]) & ok & (piv[o] >= 0)).values[(ok & (piv[o] >= 0)).values]
                          for o in ["shuffled1", "shuffled2", "shuffled3"] if o in piv])
     row = dict(model=m, task=t, B=b, n=len(piv), comp=ch.mean(), comp_lo=boot_ci(ch.astype(float))[0],
                comp_hi=boot_ci(ch.astype(float))[1])
     rr = Rr[(Rr.model == m) & (Rr.task == t) & (Rr.B == b)] if len(Rr) else Rr
     if len(rr):
         r1 = rr.set_index("tid").pred.reindex(piv.index)
-        ch2 = ((r1 != piv["shuffled"]) & ok & (r1 >= -1)).values
+        ch2 = ((r1 != piv["shuffled"]) & ok & (r1 >= 0)).values[(ok & (r1 >= 0)).values]
         row.update(rerun=ch2.mean(), rerun_lo=boot_ci(ch2.astype(float))[0], rerun_hi=boot_ci(ch2.astype(float))[1])
     comp.append(row)
     for o in ["sorted", "keyed"]:

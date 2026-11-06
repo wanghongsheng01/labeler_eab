@@ -1,0 +1,27 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ds-pro agnews uncached rerun flip 0.004 cache share 0.004
+ds-flash agnews uncached rerun flip 0.009 cache share 0.003
+ds-pro emotion uncached rerun flip 0.018 cache share 0.0
+ds-flash emotion uncached rerun flip 0.02 cache share 0.003
+ds-pro yelp uncached rerun flip 0.014 cache share 0.016
+ds-flash yelp uncached rerun flip 0.016 cache share 0.033
+ds-pro hate uncached rerun flip 0.036 cache share 0.0
+ds-flash hate uncached rerun flip 0.0265 cache share 0.003
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+ds-flash agnews accuracy by condition {'mixed': 0.91, 'other': 0.906, 'same': 0.866} other: label = neighbors' class 0.016
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+ds-flash emotion accuracy by condition {'mixed': 0.594, 'other': 0.608, 'same': 0.546} other: label = neighbors' class 0.068
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+ds-flash yelp accuracy by condition {'mixed': 0.664, 'other': 0.684, 'same': 0.636} other: label = neighbors' class 0.068
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+ds-flash hate accuracy by condition {'mixed': 0.724, 'other': 0.664, 'same': 0.778} other: label = neighbors' class 0.336
+UC DONE Fri Nov  6 19:45:42 CST 2026

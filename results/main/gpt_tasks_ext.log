@@ -1,0 +1,22 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol  amazon_zh B=10  batch  shuffled  rep=0 n=2000 acc=0.527 refused=0.000 missing=0.000 $=0.0000 wall=143s
+gpt-6-sol  amazon_zh B=10  batch  shuffled1 rep=0 n=2000 acc=0.535 refused=0.000 missing=0.000 $=0.0000 wall=138s
+gpt-6-sol  amazon_zh B=10  batch  sorted    rep=0 n=2000 acc=0.519 refused=0.000 missing=0.000 $=0.0000 wall=165s
+gpt-6-sol  amazon_zh B=10  batch  keyed     rep=0 n=2000 acc=0.520 refused=0.000 missing=0.000 $=0.0000 wall=140s
+gpt-6-sol  amazon_zh B=10  batch  shuffled  rep=1 n=2000 acc=0.526 refused=0.000 missing=0.000 $=0.0000 wall=136s
+wrote results/main/TZ__gpt-6-sol__amazon_zh.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 2.324, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 3.084, 'qwen2.5-3b': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol  abtbuy   B=10  batch  shuffled  rep=0 n=1916 acc=0.985 refused=0.000 missing=0.000 $=0.0000 wall=96s
+gpt-6-sol  abtbuy   B=10  batch  shuffled1 rep=0 n=1916 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=102s
+gpt-6-sol  abtbuy   B=10  batch  sorted    rep=0 n=1916 acc=0.984 refused=0.000 missing=0.000 $=0.0000 wall=96s
+gpt-6-sol  abtbuy   B=10  batch  keyed     rep=0 n=1916 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=83s
+gpt-6-sol  abtbuy   B=10  batch  shuffled  rep=1 n=1916 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=165s
+gpt-6-sol  abtbuy   B=10  batcher shuffled  rep=0 n=1916 acc=0.979 refused=0.000 missing=0.000 $=0.0000 wall=173s
+gpt-6-sol  abtbuy   B=10  batcher shuffled1 rep=0 n=1916 acc=0.984 refused=0.000 missing=0.000 $=0.0000 wall=200s
+gpt-6-sol  abtbuy   B=10  batcher sorted    rep=0 n=1916 acc=0.972 refused=0.000 missing=0.001 $=0.0000 wall=172s
+gpt-6-sol  abtbuy   B=10  batcher keyed     rep=0 n=1916 acc=0.981 refused=0.000 missing=0.000 $=0.0000 wall=149s
+gpt-6-sol  abtbuy   B=10  batcher shuffled  rep=1 n=1916 acc=0.980 refused=0.000 missing=0.000 $=0.0000 wall=153s
+wrote results/main/TE__gpt-6-sol__abtbuy.csv spent today: {'gpt-6-sol': 0.0, 'claude-opus-5.5': 0.0, 'ds-flash': 2.324, 'glm-5.3-flash': 0.0, 'kimi-k2.6': 3.084, 'qwen2.5-3b': 0.0}
+GPT T DONE Fri Nov  6 19:42:50 CST 2026
