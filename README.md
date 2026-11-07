@@ -1,6 +1,6 @@
 # Artifacts for "Semantic Operators Are Not Tuple Functions: Batch Composition, Physical Order, and Refusals in Commercial LLM Labelers"
 
-Hongsheng Wang and Xiubo Liang (Zhejiang University). Repository: <https://github.com/wanghongsheng01/labeler_eab>.
+Hongsheng Wang (Zhejiang University). Repository: <https://github.com/wanghongsheng01/labeler_eab>.
 
 This repository contains the protocol, code, per-tuple outputs, per-call logs and costs needed to reproduce every number, table and figure of the paper. No API key is needed to reproduce the analyses.
 
