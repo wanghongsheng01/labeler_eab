@@ -1,0 +1,31 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+glm-5.3-zp agnews   B=10  batch  shuffled  rep=0 n=500 acc=0.890 refused=0.020 missing=0.020 $=0.0534 wall=44s
+glm-5.3-zp agnews   B=10  batch  shuffled1 rep=0 n=500 acc=0.896 refused=0.020 missing=0.020 $=0.0535 wall=180s
+glm-5.3-zp agnews   B=10  batch  sorted    rep=0 n=500 acc=0.846 refused=0.020 missing=0.020 $=0.0537 wall=42s
+glm-5.3-zp agnews   B=10  batch  keyed     rep=0 n=500 acc=0.894 refused=0.020 missing=0.020 $=0.0528 wall=44s
+glm-5.3-zp agnews   B=10  batch  perm1     rep=0 n=500 acc=0.892 refused=0.020 missing=0.020 $=0.0537 wall=43s
+glm-5.3-zp agnews   B=10  batch  shuffled  rep=1 n=500 acc=0.890 refused=0.020 missing=0.020 $=0.0536 wall=59s
+wrote results/main/L__glm-5.3-zp__agnews.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'glm-5.3-zp': 0.321}
+glm-5.3-zp emotion  B=10  batch  shuffled  rep=0 n=500 acc=0.612 refused=0.000 missing=0.000 $=0.0346 wall=48s
+glm-5.3-zp emotion  B=10  batch  shuffled1 rep=0 n=500 acc=0.616 refused=0.000 missing=0.000 $=0.0357 wall=44s
+glm-5.3-zp emotion  B=10  batch  sorted    rep=0 n=500 acc=0.574 refused=0.000 missing=0.000 $=0.0353 wall=49s
+glm-5.3-zp emotion  B=10  batch  keyed     rep=0 n=500 acc=0.626 refused=0.000 missing=0.000 $=0.0347 wall=41s
+glm-5.3-zp emotion  B=10  batch  perm1     rep=0 n=500 acc=0.616 refused=0.000 missing=0.000 $=0.0339 wall=43s
+glm-5.3-zp emotion  B=10  batch  shuffled  rep=1 n=500 acc=0.594 refused=0.000 missing=0.000 $=0.0331 wall=54s
+wrote results/main/L__glm-5.3-zp__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'glm-5.3-zp': 0.528}
+glm-5.3-zp yelp     B=10  batch  shuffled  rep=0 n=500 acc=0.672 refused=0.000 missing=0.000 $=0.1411 wall=56s
+glm-5.3-zp yelp     B=10  batch  shuffled1 rep=0 n=500 acc=0.654 refused=0.000 missing=0.000 $=0.1397 wall=47s
+glm-5.3-zp yelp     B=10  batch  sorted    rep=0 n=500 acc=0.658 refused=0.000 missing=0.000 $=0.1408 wall=44s
+glm-5.3-zp yelp     B=10  batch  keyed     rep=0 n=500 acc=0.682 refused=0.000 missing=0.000 $=0.1399 wall=49s
+glm-5.3-zp yelp     B=10  batch  perm1     rep=0 n=500 acc=0.690 refused=0.000 missing=0.000 $=0.1399 wall=48s
+glm-5.3-zp yelp     B=10  batch  shuffled  rep=1 n=500 acc=0.690 refused=0.000 missing=0.000 $=0.1402 wall=39s
+wrote results/main/L__glm-5.3-zp__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'glm-5.3-zp': 1.37}
+glm-5.3-zp hate     B=10  batch  shuffled  rep=0 n=500 acc=0.714 refused=0.020 missing=0.020 $=0.0544 wall=54s
+glm-5.3-zp hate     B=10  batch  shuffled1 rep=0 n=500 acc=0.726 refused=0.020 missing=0.020 $=0.0530 wall=49s
+glm-5.3-zp hate     B=10  batch  sorted    rep=0 n=500 acc=0.712 refused=0.020 missing=0.020 $=0.0525 wall=60s
+glm-5.3-zp hate     B=10  batch  keyed     rep=0 n=500 acc=0.718 refused=0.020 missing=0.020 $=0.0535 wall=58s
+glm-5.3-zp hate     B=10  batch  perm1     rep=0 n=500 acc=0.728 refused=0.020 missing=0.020 $=0.0530 wall=50s
+glm-5.3-zp hate     B=10  batch  shuffled  rep=1 n=500 acc=0.720 refused=0.020 missing=0.020 $=0.0554 wall=216s
+wrote results/main/L__glm-5.3-zp__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'glm-5.3-zp': 1.692}
+NEWEST DONE glm-5.3-zp Tue Nov 10 21:26:27 CST 2026

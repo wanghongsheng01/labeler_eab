@@ -1,0 +1,31 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+kimi-k3.1-ark agnews   B=10  batch  shuffled  rep=0 n=500 acc=0.922 refused=0.000 missing=0.000 $=0.0944 wall=27s
+kimi-k3.1-ark agnews   B=10  batch  shuffled1 rep=0 n=500 acc=0.928 refused=0.000 missing=0.000 $=0.0944 wall=23s
+kimi-k3.1-ark agnews   B=10  batch  sorted    rep=0 n=500 acc=0.928 refused=0.000 missing=0.000 $=0.0944 wall=25s
+kimi-k3.1-ark agnews   B=10  batch  keyed     rep=0 n=500 acc=0.928 refused=0.000 missing=0.000 $=0.0945 wall=24s
+kimi-k3.1-ark agnews   B=10  batch  perm1     rep=0 n=500 acc=0.926 refused=0.000 missing=0.000 $=0.0945 wall=27s
+kimi-k3.1-ark agnews   B=10  batch  shuffled  rep=1 n=500 acc=0.924 refused=0.000 missing=0.000 $=0.0945 wall=27s
+wrote results/main/L__kimi-k3.1-ark__agnews.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'kimi-k3.1-ark': 0.567}
+kimi-k3.1-ark emotion  B=10  batch  shuffled  rep=0 n=500 acc=0.606 refused=0.000 missing=0.000 $=0.0617 wall=24s
+kimi-k3.1-ark emotion  B=10  batch  shuffled1 rep=0 n=500 acc=0.614 refused=0.000 missing=0.000 $=0.0617 wall=28s
+kimi-k3.1-ark emotion  B=10  batch  sorted    rep=0 n=500 acc=0.562 refused=0.000 missing=0.000 $=0.0617 wall=22s
+kimi-k3.1-ark emotion  B=10  batch  keyed     rep=0 n=500 acc=0.594 refused=0.000 missing=0.000 $=0.0617 wall=27s
+kimi-k3.1-ark emotion  B=10  batch  perm1     rep=0 n=500 acc=0.594 refused=0.000 missing=0.000 $=0.0617 wall=23s
+kimi-k3.1-ark emotion  B=10  batch  shuffled  rep=1 n=500 acc=0.594 refused=0.000 missing=0.000 $=0.0617 wall=23s
+wrote results/main/L__kimi-k3.1-ark__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'kimi-k3.1-ark': 0.937}
+kimi-k3.1-ark yelp     B=10  batch  shuffled  rep=0 n=500 acc=0.708 refused=0.000 missing=0.000 $=0.2120 wall=29s
+kimi-k3.1-ark yelp     B=10  batch  shuffled1 rep=0 n=500 acc=0.688 refused=0.000 missing=0.000 $=0.2120 wall=25s
+kimi-k3.1-ark yelp     B=10  batch  sorted    rep=0 n=500 acc=0.676 refused=0.000 missing=0.000 $=0.2120 wall=28s
+kimi-k3.1-ark yelp     B=10  batch  keyed     rep=0 n=500 acc=0.710 refused=0.000 missing=0.000 $=0.2120 wall=27s
+kimi-k3.1-ark yelp     B=10  batch  perm1     rep=0 n=500 acc=0.708 refused=0.000 missing=0.000 $=0.2120 wall=29s
+kimi-k3.1-ark yelp     B=10  batch  shuffled  rep=1 n=500 acc=0.698 refused=0.000 missing=0.000 $=0.2120 wall=27s
+wrote results/main/L__kimi-k3.1-ark__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'kimi-k3.1-ark': 2.209}
+kimi-k3.1-ark hate     B=10  batch  shuffled  rep=0 n=500 acc=0.742 refused=0.000 missing=0.000 $=0.0854 wall=30s
+kimi-k3.1-ark hate     B=10  batch  shuffled1 rep=0 n=500 acc=0.754 refused=0.000 missing=0.000 $=0.0857 wall=27s
+kimi-k3.1-ark hate     B=10  batch  sorted    rep=0 n=500 acc=0.686 refused=0.000 missing=0.000 $=0.0852 wall=28s
+kimi-k3.1-ark hate     B=10  batch  keyed     rep=0 n=500 acc=0.754 refused=0.000 missing=0.000 $=0.0855 wall=26s
+kimi-k3.1-ark hate     B=10  batch  perm1     rep=0 n=500 acc=0.756 refused=0.000 missing=0.000 $=0.0854 wall=29s
+kimi-k3.1-ark hate     B=10  batch  shuffled  rep=1 n=500 acc=0.746 refused=0.000 missing=0.000 $=0.0854 wall=27s
+wrote results/main/L__kimi-k3.1-ark__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0, 'kimi-k3.1-ark': 2.721}
+NEWEST DONE kimi-k3.1-ark Tue Nov 10 21:12:34 CST 2026

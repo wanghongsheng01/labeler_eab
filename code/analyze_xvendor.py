@@ -18,7 +18,7 @@ M = f"{HERE}/results/main"
 MODELS = ("gpt-6-sol-nr2", "claude-opus-5.5", "qwen2.5-3b", "qwen2.5-7b")
 # `python analyze_xvendor.py all`: every labeler, planned ones included, for the all-labeler table (results/all_summary.csv)
 ALL = ("ds-flash", "ds-pro", "glm-5.3-flash", "kimi-k2.6", "gpt-6-sol-nr2", "gpt-6.1-sol", "gpt-6-astra", "claude-opus-5.5",
-       "kimi-k3-gw", "glm-5.3-gw", "qwen3.8-27b", "qwen2.5-3b", "qwen2.5-7b")
+       "kimi-k3-gw", "glm-5.3-gw", "kimi-k3.1-ark", "glm-5.3-zp", "qwen3.8-27b", "qwen2.5-3b", "qwen2.5-7b")
 rng = np.random.default_rng(0)
 
 

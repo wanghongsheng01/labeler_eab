@@ -26,6 +26,9 @@ MODELS = {"ds-flash": ("deepseek", "deepseek-flash"), "ds-pro": ("deepseek", "de
           # international labelers through the company gateway (a router, unlike the first-party endpoints above)
           "gpt-6-sol": ("gateway", "gpt-6-sol"), "gpt-6-sol-nr": ("gateway", "gpt-6-sol"), "gpt-6-sol-nr2": ("gateway2", "gpt-6-sol"), "gpt-6.1-sol": ("gateway", "gpt-6.1-sol"), "gpt-6-astra": ("gateway", "gpt-6-astra"),
           "kimi-k3-gw": ("gateway", "Kimi-K3"), "qwen3.8-27b": ("gateway", "Qwen3.8-27B"), "glm-5.3-gw": ("gateway", "glm-5.3"), "claude-opus-5.5": ("gateway", "claude-opus-5-5"),
+          # other channels while the gateway budget was exhausted (2026-11-10): Kimi-K3.1 Pro on Volcengine Ark and
+          # GLM-5.3 on the first-party Zhipu endpoint (the same model as glm-5.3-gw, kept as a separate labeler)
+          "kimi-k3.1-ark": ("ark", "kimi-k3-1-pro-261024"), "glm-5.3-zp": ("glm2", "glm-5.3"),
           # open-weight, deterministic: Qwen2.5-3B-Instruct (Q4_K_M GGUF) with greedy decoding, no request batching
           "qwen2.5-3b": ("local", "qwen2.5-3b-instruct-q4_k_m"),
           # the same family at 7B (Q4_K_M GGUF, two shards), served on an NVIDIA A10 under the same settings
@@ -52,6 +55,10 @@ MAX_TOKENS_FLOOR = {"kimi-k3-gw": 4000, "glm-5.3-gw": 4000}
 # newest models on the gateway (added 2026-11-10), each at the lowest reasoning setting it accepts
 FIXED.update({"gpt-6.1-sol": {"reasoning_effort": "low"}, "gpt-6-astra": {"reasoning_effort": "minimal"},
               "kimi-k3-gw": {"thinking": {"type": "disabled"}}, "glm-5.3-gw": {"thinking": {"type": "disabled"}}})  # the gateway accepts it (checked 2026-11-09); the default reasons
+# list prices per 1M tokens (checked 2026-11-10): Kimi-K3.1 Pro at Moonshot's international rate, GLM-5.3 at Z.ai's
+PRICES.update({"kimi-k3.1-ark": (2.00, 10.00), "glm-5.3-zp": (1.40, 4.40)})
+# both accept disabling the reasoning (0 reasoning tokens, checked 2026-11-10); Ark requires temperature 0.6 then
+FIXED.update({"kimi-k3.1-ark": {**OFF, "temperature": 0.6}, "glm-5.3-zp": OFF})
 FIXED["claude-opus-5.5"] = {"temperature": None}  # "temperature is deprecated for this model" on part of the gateway
 # cache entries older than CACHE_AFTER (unix time) are ignored and re-fetched, e.g. to keep pilot-era answers out of
 # the main runs (the main runs use CACHE_AFTER = the time the protocol was fixed)

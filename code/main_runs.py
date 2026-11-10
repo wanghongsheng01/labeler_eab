@@ -86,7 +86,7 @@ def vendor_up(model):
     try:
         r = requests.post(cfg["base_url"].rstrip("/") + "/chat/completions", headers={"Authorization": "Bearer " + cfg["api_key"]},
                           json={"model": name, "messages": [{"role": "user", "content": "Say OK"}], "max_tokens": 5,
-                                **{k: v for k, v in llm.FIXED.get(model, {}).items() if k != "temperature"}},
+                                **{k: v for k, v in llm.FIXED.get(model, {}).items() if k != "temperature" or v is not None}},  # Ark accepts only its fixed temperature
                           timeout=float(os.environ.get("PROBE_TIMEOUT", 45)))  # slow endpoints need longer
         code = r.status_code
     except requests.RequestException:
