@@ -23,7 +23,7 @@ def load(name, *a, **k):
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "results", "pilot")
 os.makedirs(OUT, exist_ok=True)
-WORKERS = {"ds-flash": 6, "ds-pro": 6, "glm-air": 2, "glm-flash": 1, "glm-air-k3": 3, "glm-5.3": 4, "glm-5.3-flash": 4, "kimi-k2.6": 3, "kimi-k3": 2, "gpt-6-sol": 8, "gpt-6-sol-nr": 8, "gpt-6-sol-nr2": 8, "gpt-6.1-sol": 6, "gpt-6-astra": 6, "kimi-k3-gw": 4, "qwen3.8-27b": 4, "glm-5.3-gw": 4, "kimi-k3.1-ark": 6, "glm-5.3-zp": 3, "claude-opus-5.5": 6, "qwen2.5-3b": 1, "qwen2.5-7b": 1}
+WORKERS = {"ds-flash": 6, "ds-pro": 6, "glm-air": 2, "glm-flash": 1, "glm-air-k3": 3, "glm-5.3": 4, "glm-5.3-flash": 4, "kimi-k2.6": 3, "kimi-k3": 2, "gpt-6-sol": 8, "gpt-6-sol-nr": 8, "gpt-6-sol-nr2": 8, "gpt-6.1-sol": 6, "gpt-6-astra": 6, "kimi-k3-gw": 4, "qwen3.8-27b": 4, "glm-5.3-gw": 4, "kimi-k3.1-ark": 6, "glm-5.3-zp": 3, "doubao-seed-2.1": 6, "claude-opus-5.5": 6, "qwen2.5-3b": 1, "qwen2.5-7b": 1}
 
 
 def parse(text, labels):

@@ -124,7 +124,7 @@ def alltable():
     NM = {"ds-flash": "DS-Flash", "ds-pro": "DS-Pro", "glm-5.3-flash": "GLM-5.3-Flash", "kimi-k2.6": "Kimi-K2.6",
           "gpt-6-sol-nr2": "GPT-6", "gpt-6.1-sol": "GPT-6.1", "gpt-6-astra": "GPT-6-Astra", "claude-opus-5.5": "Claude",
           "kimi-k3-gw": "Kimi-K3", "glm-5.3-gw": "GLM-5.3 (gw)", "kimi-k3.1-ark": "Kimi-K3.1 (Ark)",
-          "glm-5.3-zp": "GLM-5.3 (API)", "qwen3.8-27b": "Qwen3.8-27B", "qwen2.5-3b": "Qwen-3B",
+          "glm-5.3-zp": "GLM-5.3 (API)", "doubao-seed-2.1": "Doubao-Seed-2.1", "qwen3.8-27b": "Qwen3.8-27B", "qwen2.5-3b": "Qwen-3B",
           "qwen2.5-7b": "Qwen-7B"}
     T4 = ["agnews", "emotion", "yelp", "hate"]
     rows = []
@@ -150,7 +150,7 @@ def alltable():
              r" & \multicolumn{4}{c}{CS (\%)} & & & \\", r"\cmidrule(lr){2-5}",
              r"Labeler & AG & Emo. & Yelp & Hate & RR & $|$Sort.$|$ & B/2 \\", r"\midrule"]
     groups = [("ds-flash", "ds-pro", "glm-5.3-flash", "kimi-k2.6"),
-              ("gpt-6-sol-nr2", "gpt-6.1-sol", "gpt-6-astra", "claude-opus-5.5", "kimi-k3-gw", "glm-5.3-gw", "kimi-k3.1-ark", "glm-5.3-zp"),
+              ("gpt-6-sol-nr2", "gpt-6.1-sol", "gpt-6-astra", "claude-opus-5.5", "kimi-k3-gw", "glm-5.3-gw", "kimi-k3.1-ark", "glm-5.3-zp", "doubao-seed-2.1"),
               ("qwen3.8-27b", "qwen2.5-3b", "qwen2.5-7b")]
     for gi, g in enumerate(groups):
         for i, row in D.iterrows():

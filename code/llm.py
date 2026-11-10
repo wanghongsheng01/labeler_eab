@@ -29,6 +29,8 @@ MODELS = {"ds-flash": ("deepseek", "deepseek-flash"), "ds-pro": ("deepseek", "de
           # other channels while the gateway budget was exhausted (2026-11-10): Kimi-K3.1 Pro on Volcengine Ark and
           # GLM-5.3 on the first-party Zhipu endpoint (the same model as glm-5.3-gw, kept as a separate labeler)
           "kimi-k3.1-ark": ("ark", "kimi-k3-1-pro-261024"), "glm-5.3-zp": ("glm2", "glm-5.3"),
+          # a seventh vendor (ByteDance), also on Volcengine Ark (2026-11-10)
+          "doubao-seed-2.1": ("ark", "doubao-seed-2-1-pro-260915"),
           # open-weight, deterministic: Qwen2.5-3B-Instruct (Q4_K_M GGUF) with greedy decoding, no request batching
           "qwen2.5-3b": ("local", "qwen2.5-3b-instruct-q4_k_m"),
           # the same family at 7B (Q4_K_M GGUF, two shards), served on an NVIDIA A10 under the same settings
@@ -57,8 +59,9 @@ FIXED.update({"gpt-6.1-sol": {"reasoning_effort": "low"}, "gpt-6-astra": {"reaso
               "kimi-k3-gw": {"thinking": {"type": "disabled"}}, "glm-5.3-gw": {"thinking": {"type": "disabled"}}})  # the gateway accepts it (checked 2026-11-09); the default reasons
 # list prices per 1M tokens (checked 2026-11-10): Kimi-K3.1 Pro at Moonshot's international rate, GLM-5.3 at Z.ai's
 PRICES.update({"kimi-k3.1-ark": (2.00, 10.00), "glm-5.3-zp": (1.40, 4.40)})
+PRICES["doubao-seed-2.1"] = (0.86, 4.31)  # Ark list price (CNY 6 / 30 per 1M tokens) in USD
 # both accept disabling the reasoning (0 reasoning tokens, checked 2026-11-10); Ark requires temperature 0.6 then
-FIXED.update({"kimi-k3.1-ark": {**OFF, "temperature": 0.6}, "glm-5.3-zp": OFF})
+FIXED.update({"kimi-k3.1-ark": {**OFF, "temperature": 0.6}, "glm-5.3-zp": OFF, "doubao-seed-2.1": OFF})
 FIXED["claude-opus-5.5"] = {"temperature": None}  # "temperature is deprecated for this model" on part of the gateway
 # cache entries older than CACHE_AFTER (unix time) are ignored and re-fetched, e.g. to keep pilot-era answers out of
 # the main runs (the main runs use CACHE_AFTER = the time the protocol was fixed)
