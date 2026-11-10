@@ -12,8 +12,9 @@ plt.rcParams.update({"font.family": "serif", "font.serif": ["Times New Roman", "
                      "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.6,
                      "xtick.major.width": 0.6, "ytick.major.width": 0.6, "legend.frameon": False,
                      "axes.grid": True, "grid.color": "#e4e3df", "grid.linewidth": 0.5, "axes.axisbelow": True,
-                     "pdf.fonttype": 42})
-COL = {"ds-flash": "#2a78d6", "ds-pro": "#eb6834", "glm-5.3-flash": "#1baf7a", "kimi-k2.6": "#6250d6"}
+                     "pdf.fonttype": 42, "mathtext.fontset": "stix"})  # Times-like text and math, as in the IEEE body
+# Okabe-Ito colors (distinguishable under the common colour-vision deficiencies), plus a distinct marker per labeler
+COL = {"ds-flash": "#0072B2", "ds-pro": "#D55E00", "glm-5.3-flash": "#009E73", "kimi-k2.6": "#CC79A7"}
 MK = {"ds-flash": "o", "ds-pro": "s", "glm-5.3-flash": "^", "kimi-k2.6": "D"}
 NAME = {"ds-flash": "DS-Flash", "ds-pro": "DS-Pro", "glm-5.3-flash": "GLM-5.3-Flash", "kimi-k2.6": "Kimi-K2.6"}
 TASKS = ["imdb", "agnews", "offensive", "yelp", "amazon", "emotion", "hate"]  # by increasing composition sensitivity
@@ -24,7 +25,7 @@ MODELS = list(COL)
 
 def fig_composition():
     C = pd.read_csv(f"{R}/rev_composition.csv").query("B == 10")  # cluster-bootstrap intervals
-    fig, ax = plt.subplots(figsize=(7.0, 2.0))
+    fig, ax = plt.subplots(figsize=(7.0, 2.1))
     off = np.linspace(-0.27, 0.27, len(MODELS))
     for k, m in enumerate(MODELS):
         x = C[C.model == m].set_index("task").reindex(TASKS)
@@ -38,8 +39,8 @@ def fig_composition():
     ax.set_xticks(range(len(TASKS)), [TN[t] for t in TASKS])
     ax.set_ylabel("Labels changed (%)")
     ax.set_xlim(-0.5, len(TASKS) - 0.5)
-    ax.legend(ncol=5, fontsize=6.2, loc="upper left", handletextpad=0.3, columnspacing=1.0)
-    ax.set_ylim(0, 31)
+    ax.legend(ncol=5, fontsize=6.2, loc="lower center", bbox_to_anchor=(0.5, 1.0), handletextpad=0.3, columnspacing=1.0)  # above the axes
+    ax.set_ylim(0, 26)
     fig.tight_layout(pad=0.3)
     fig.savefig(f"{F}/composition.pdf")
 
@@ -69,26 +70,34 @@ def fig_order():
 
 
 def fig_batch():
+    # two annotated heatmaps (dataset x batch size) instead of seven converging lines
     c = pd.read_csv(f"{R}/main_batchcurve.csv").query("model == 'ds-flash'")
-    fig, axs = plt.subplots(1, 2, figsize=(3.5, 1.95))
-    TC = dict(zip(TASKS, ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6"]))
-    for t in TASKS:
-        x = c[(c.task == t) & (c.fmt == "batch")].sort_values("B")
+    Bs = sorted(c[c.fmt == "batch"].B.unique())
+    acc = np.full((len(TASKS), len(Bs)), np.nan); cost = acc.copy()
+    for i, t in enumerate(TASKS):
         s = c[(c.task == t) & (c.fmt == "single")]
-        a0 = s.acc.iloc[0]
-        axs[0].plot(x.B, 100 * (x.acc - a0), "-", lw=1.2, color=TC[t], label=TN[t])
-        axs[1].plot(x.B, x.usd_1k / s.usd_1k.iloc[0], "-", lw=1.2, color=TC[t])
-    for ax in axs:
-        ax.set_xscale("log"); ax.set_xticks([1, 10, 100], ["1", "10", "100"]); ax.set_xticks([5, 20, 50], minor=True)
-        ax.set_xlabel("Tuples per call $B$")
-    axs[0].axhline(0, color="#8a8984", lw=0.6)
-    axs[0].set_ylabel("Accuracy vs. one-per-call (pp)")
-    axs[1].set_ylabel("Cost vs. one-per-call")
-    axs[1].axhline(1, color="#8a8984", lw=0.6)
-    h, l = axs[0].get_legend_handles_labels()
-    fig.legend(h, l, ncol=7, fontsize=5.6, loc="upper center", bbox_to_anchor=(0.5, 1.0), handletextpad=0.2,
-               columnspacing=0.6, handlelength=1.0)
-    fig.tight_layout(pad=0.3, rect=(0, 0, 1, 0.9))
+        for j, b in enumerate(Bs):
+            x = c[(c.task == t) & (c.fmt == "batch") & (c.B == b)]
+            if len(x):
+                acc[i, j] = 100 * (x.acc.iloc[0] - s.acc.iloc[0]); cost[i, j] = x.usd_1k.iloc[0] / s.usd_1k.iloc[0]
+    fig, axs = plt.subplots(1, 2, figsize=(3.5, 1.9), sharey=True)
+    lim = np.nanmax(np.abs(acc))
+    panels = [(axs[0], acc, "PuOr", -lim, lim, "{:+.1f}", "Accuracy vs. one-per-call (pp)"),
+              (axs[1], cost, "Blues_r", 0.4, 1.6, "{:.2f}", "Cost vs. one-per-call")]
+    for ax, M, cmap, lo, hi, f, title in panels:  # PuOr is diverging and colour-blind safe; Blues is one hue
+        ax.imshow(M, cmap=cmap, vmin=lo, vmax=hi, aspect="auto")
+        for i in range(M.shape[0]):
+            for j in range(M.shape[1]):
+                v = M[i, j]
+                dark = abs(v) > 0.6 * lim if M is acc else v < 0.75
+                ax.text(j, i, f.format(0.0 if abs(v) < 0.05 and M is acc else v).replace("+0.0", "0.0"), ha="center", va="center", fontsize=6, color="white" if dark else "black")
+        ax.set_xticks(range(len(Bs)), [str(int(b)) for b in Bs]); ax.set_xlabel("Tuples per call $B$")
+        ax.set_title(title, fontsize=6.8); ax.grid(False)
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+        ax.tick_params(length=0)
+    axs[0].set_yticks(range(len(TASKS)), [TN[t] for t in TASKS])
+    fig.tight_layout(pad=0.3, w_pad=0.4)
     fig.savefig(f"{F}/batch.pdf")
 
 
@@ -105,7 +114,7 @@ def fig_refusal():
     D = pd.DataFrame(rows)
     fig, ax = plt.subplots(figsize=(3.5, 1.55))
     ON = {"shuffled": "Random (canonical)", "keyed": "Clustered on text length", "sorted": "Clustered on the attribute"}
-    OC = {"shuffled": "#9ec5f4", "keyed": "#5598e7", "sorted": "#184f95"}
+    OC = {"shuffled": "#9ecae1", "keyed": "#4292c6", "sorted": "#08306b"}  # one hue, light to dark
     for i, t in enumerate(["agnews", "hate"]):
         for j, o in enumerate(["shuffled", "keyed", "sorted"]):
             r = D[(D.task == t) & (D.order == o)].iloc[0]

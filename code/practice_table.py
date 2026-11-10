@@ -29,7 +29,7 @@ def main():
     rows.append(("L1", "DBpedia accuracy, DS-Flash (\\%)", f"{100 * h[h.order == 'stored'].acc.iloc[0]:.1f}",
                  f"{100 * h[h.order.str.startswith('shuffled')].acc.mean():.1f}", "high"))
     b = pd.read_csv(f"{R}/main_refusal_bias.csv").set_index(["task", "order"])["shift"]
-    rows.append(("L1", "Refusal bias, AG News (pt)", f"{b[('agnews', 'sorted')]:.2f}", f"{b[('agnews', 'shuffled')]:.2f}", "low"))
+    rows.append(("L1", "Refusal bias, AG News (pp)", f"{b[('agnews', 'sorted')]:.2f}", f"{b[('agnews', 'shuffled')]:.2f}", "low"))
     q = pd.read_csv(f"{R}/main_querylevel.csv"); q = q[(q.B == 10) & q.model.isin(PLANNED)]
     c = pd.read_csv(f"{R}/rev_composition.csv"); c = c[(c.B == 10) & c.model.isin(PLANNED)]
     m = q.merge(c, on=["model", "task"])
@@ -40,7 +40,7 @@ def main():
     gt = pd.read_csv(f"{R}/gt_scale.csv")
     n_ref = 39
     rows.append(("L4", "Calls to locate the 6 triggers", f"{n_ref * np.log2(10):.0f}", "6", "low"))
-    rows.append(("L4", "Clustered GROUP BY bias (pt)", f"{b[('agnews', 'sorted')]:.2f}", "0.00", "low"))
+    rows.append(("L4", "Clustered GROUP BY bias (pp)", f"{b[('agnews', 'sorted')]:.2f}", "0.00", "low"))
     v = pd.read_csv(f"{R}/main/V2_served.csv"); v = v[(v.http == 200) & v.requested.isin(["glm-4.5-air", "glm-4.7"])]
     rows.append(("L5", "Labels on the wrong model (\\%)", f"{100 * (v.served != v.requested).mean():.0f}", "0", "low"))
     D = pd.DataFrame(rows, columns=["rule", "metric", "common", "recommended", "better"])

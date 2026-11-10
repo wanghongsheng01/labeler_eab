@@ -40,7 +40,7 @@ def querylevel():
         for m, a, b in zip(MODELS, mu, mj):
             cnt[m][0] += a == "b"; cnt[m][1] += a == "u"; cnt[m][2] += b == "b"; cnt[m][3] += b == "u"
         lines.append(TN[t] + " & " + " & ".join(wrap(f"{v:.1f}", k) for v, k in zip(u, mu)) + " & " +
-                     " & ".join(wrap(f"{v:.2f}".replace("0.", ".").replace("1.00", "1"), k) + f"/{r:.2f}".replace("0.", ".").replace("1.00", "1")
+                     " & ".join(wrap(f"{v:.2f}".replace("0.", "."), k) + f"/{r:.2f}".replace("0.", ".")
                                 for v, k, r in zip(jg, mj, x.jac_rerun_min)) + r" \\")
     lines += [r"\midrule", "Best/2nd & " + " & ".join(f"{cnt[m][0]}/{cnt[m][1]}" for m in MODELS) + " & " +
               " & ".join(f"{cnt[m][2]}/{cnt[m][3]}" for m in MODELS) + r" \\", r"\bottomrule", r"\end{tabular}"]
