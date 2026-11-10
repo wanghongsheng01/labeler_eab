@@ -1,0 +1,24 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+kimi-k3-gw emotion  B=10  batch  shuffled  rep=0 n=500 acc=0.584 refused=0.000 missing=0.080 $=0.0000 wall=288s
+kimi-k3-gw emotion  B=10  batch  shuffled1 rep=0 n=500 acc=0.594 refused=0.000 missing=0.060 $=0.0000 wall=255s
+kimi-k3-gw emotion  B=10  batch  sorted    rep=0 n=500 acc=0.522 refused=0.000 missing=0.140 $=0.0000 wall=400s
+kimi-k3-gw emotion  B=10  batch  keyed     rep=0 n=500 acc=0.624 refused=0.000 missing=0.080 $=0.0000 wall=349s
+kimi-k3-gw emotion  B=10  batch  perm1     rep=0 n=500 acc=0.564 refused=0.000 missing=0.100 $=0.0000 wall=400s
+kimi-k3-gw emotion  B=10  batch  shuffled  rep=1 n=500 acc=0.570 refused=0.000 missing=0.080 $=0.0000 wall=298s
+wrote results/main/L__kimi-k3-gw__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0}
+kimi-k3-gw yelp     B=10  batch  shuffled  rep=0 n=500 acc=0.684 refused=0.000 missing=0.040 $=0.0000 wall=299s
+kimi-k3-gw yelp     B=10  batch  shuffled1 rep=0 n=500 acc=0.708 refused=0.000 missing=0.000 $=0.0000 wall=197s
+kimi-k3-gw yelp     B=10  batch  sorted    rep=0 n=500 acc=0.652 refused=0.000 missing=0.020 $=0.0000 wall=237s
+kimi-k3-gw yelp     B=10  batch  keyed     rep=0 n=500 acc=0.698 refused=0.000 missing=0.000 $=0.0000 wall=196s
+kimi-k3-gw yelp     B=10  batch  perm1     rep=0 n=500 acc=0.700 refused=0.000 missing=0.020 $=0.0000 wall=203s
+kimi-k3-gw yelp     B=10  batch  shuffled  rep=1 n=500 acc=0.686 refused=0.000 missing=0.020 $=0.0000 wall=206s
+wrote results/main/L__kimi-k3-gw__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0}
+kimi-k3-gw hate     B=10  batch  shuffled  rep=0 n=500 acc=0.692 refused=0.000 missing=0.080 $=0.0000 wall=380s
+kimi-k3-gw hate     B=10  batch  shuffled1 rep=0 n=500 acc=0.674 refused=0.000 missing=0.120 $=0.0000 wall=443s
+kimi-k3-gw hate     B=10  batch  sorted    rep=0 n=500 acc=0.676 refused=0.000 missing=0.132 $=0.0000 wall=356s
+kimi-k3-gw hate     B=10  batch  keyed     rep=0 n=500 acc=0.712 refused=0.000 missing=0.080 $=0.0000 wall=274s
+kimi-k3-gw hate     B=10  batch  perm1     rep=0 n=500 acc=0.620 refused=0.000 missing=0.160 $=0.0000 wall=450s
+kimi-k3-gw hate     B=10  batch  shuffled  rep=1 n=500 acc=0.702 refused=0.000 missing=0.080 $=0.0000 wall=334s
+wrote results/main/L__kimi-k3-gw__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0}
+NEWEST DONE kimi-k3-gw Tue Nov 10 17:56:39 CST 2026

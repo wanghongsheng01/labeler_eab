@@ -1,0 +1,8 @@
+16:38 ping: EXC HTTPSConnectionPool(host='<gateway-host>', port=443): Re
+16:49 ping: EXC HTTPSConnectionPool(host='<gateway-host>', port=443): Re
+17:07 ping: EXC HTTPSConnectionPool(host='<gateway-host>', port=443): Re
+17:25 ping: EXC HTTPSConnectionPool(host='<gateway-host>', port=443): Re
+17:44 ping: EXC HTTPSConnectionPool(host='<gateway-host>', port=443): Re
+18:02 ping: EXC HTTPSConnectionPool(host='<gateway-host>', port=443): Re
+18:33 ping: 422 {"error":{"message":"Budget has been exceeded! Team=ea4ac7de-5194-4ba0-a658-c640b6e0a5
+18:48 ping: 422 {"error":{"message":"Budget has been exceeded! Team=ea4ac7de-5194-4ba0-a658-c640b6e0a5

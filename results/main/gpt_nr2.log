@@ -8,3 +8,157 @@ VENDOR DOWN gpt-6-sol-nr
   warnings.warn(
 VENDOR DOWN gpt-6-sol-nr
 GPT-NR DONE Tue Nov 10 07:55:15 CST 2026
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr2 imdb     B=10  batch  shuffled  rep=0 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=44s
+gpt-6-sol-nr2 imdb     B=10  batch  shuffled1 rep=0 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=42s
+gpt-6-sol-nr2 imdb     B=10  batch  shuffled2 rep=0 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=42s
+gpt-6-sol-nr2 imdb     B=10  batch  shuffled3 rep=0 n=1000 acc=0.965 refused=0.000 missing=0.000 $=0.0000 wall=44s
+gpt-6-sol-nr2 imdb     B=10  batch  sorted    rep=0 n=1000 acc=0.967 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 imdb     B=10  batch  keyed     rep=0 n=1000 acc=0.968 refused=0.000 missing=0.000 $=0.0000 wall=45s
+wrote results/main/B10__gpt-6-sol-nr2__imdb.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 yelp     B=10  batch  shuffled  rep=0 n=1000 acc=0.690 refused=0.000 missing=0.000 $=0.0000 wall=52s
+gpt-6-sol-nr2 yelp     B=10  batch  shuffled1 rep=0 n=1000 acc=0.686 refused=0.000 missing=0.000 $=0.0000 wall=53s
+gpt-6-sol-nr2 yelp     B=10  batch  shuffled2 rep=0 n=1000 acc=0.694 refused=0.000 missing=0.000 $=0.0000 wall=55s
+gpt-6-sol-nr2 yelp     B=10  batch  shuffled3 rep=0 n=1000 acc=0.688 refused=0.000 missing=0.000 $=0.0000 wall=72s
+gpt-6-sol-nr2 yelp     B=10  batch  sorted    rep=0 n=1000 acc=0.686 refused=0.000 missing=0.000 $=0.0000 wall=44s
+gpt-6-sol-nr2 yelp     B=10  batch  keyed     rep=0 n=1000 acc=0.690 refused=0.000 missing=0.000 $=0.0000 wall=43s
+wrote results/main/B10__gpt-6-sol-nr2__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 agnews   B=10  batch  shuffled  rep=0 n=1000 acc=0.900 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 agnews   B=10  batch  shuffled1 rep=0 n=1000 acc=0.898 refused=0.000 missing=0.000 $=0.0000 wall=41s
+gpt-6-sol-nr2 agnews   B=10  batch  shuffled2 rep=0 n=1000 acc=0.902 refused=0.000 missing=0.000 $=0.0000 wall=42s
+gpt-6-sol-nr2 agnews   B=10  batch  shuffled3 rep=0 n=1000 acc=0.893 refused=0.000 missing=0.000 $=0.0000 wall=41s
+gpt-6-sol-nr2 agnews   B=10  batch  sorted    rep=0 n=1000 acc=0.897 refused=0.000 missing=0.000 $=0.0000 wall=43s
+gpt-6-sol-nr2 agnews   B=10  batch  keyed     rep=0 n=1000 acc=0.903 refused=0.000 missing=0.000 $=0.0000 wall=49s
+wrote results/main/B10__gpt-6-sol-nr2__agnews.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 emotion  B=10  batch  shuffled  rep=0 n=1000 acc=0.651 refused=0.000 missing=0.000 $=0.0000 wall=48s
+gpt-6-sol-nr2 emotion  B=10  batch  shuffled1 rep=0 n=1000 acc=0.640 refused=0.000 missing=0.000 $=0.0000 wall=65s
+gpt-6-sol-nr2 emotion  B=10  batch  shuffled2 rep=0 n=1000 acc=0.640 refused=0.000 missing=0.000 $=0.0000 wall=44s
+gpt-6-sol-nr2 emotion  B=10  batch  shuffled3 rep=0 n=1000 acc=0.640 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 emotion  B=10  batch  sorted    rep=0 n=1000 acc=0.625 refused=0.000 missing=0.000 $=0.0000 wall=37s
+gpt-6-sol-nr2 emotion  B=10  batch  keyed     rep=0 n=1000 acc=0.646 refused=0.000 missing=0.000 $=0.0000 wall=36s
+wrote results/main/B10__gpt-6-sol-nr2__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 hate     B=10  batch  shuffled  rep=0 n=1000 acc=0.770 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 hate     B=10  batch  shuffled1 rep=0 n=1000 acc=0.777 refused=0.000 missing=0.000 $=0.0000 wall=38s
+gpt-6-sol-nr2 hate     B=10  batch  shuffled2 rep=0 n=1000 acc=0.766 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 hate     B=10  batch  shuffled3 rep=0 n=1000 acc=0.775 refused=0.000 missing=0.000 $=0.0000 wall=39s
+gpt-6-sol-nr2 hate     B=10  batch  sorted    rep=0 n=1000 acc=0.766 refused=0.000 missing=0.000 $=0.0000 wall=45s
+gpt-6-sol-nr2 hate     B=10  batch  keyed     rep=0 n=1000 acc=0.764 refused=0.000 missing=0.000 $=0.0000 wall=50s
+wrote results/main/B10__gpt-6-sol-nr2__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 offensive B=10  batch  shuffled  rep=0 n=860 acc=0.831 refused=0.000 missing=0.000 $=0.0000 wall=46s
+gpt-6-sol-nr2 offensive B=10  batch  shuffled1 rep=0 n=860 acc=0.823 refused=0.000 missing=0.000 $=0.0000 wall=62s
+gpt-6-sol-nr2 offensive B=10  batch  shuffled2 rep=0 n=860 acc=0.821 refused=0.000 missing=0.000 $=0.0000 wall=33s
+gpt-6-sol-nr2 offensive B=10  batch  shuffled3 rep=0 n=860 acc=0.835 refused=0.000 missing=0.000 $=0.0000 wall=34s
+gpt-6-sol-nr2 offensive B=10  batch  sorted    rep=0 n=860 acc=0.807 refused=0.000 missing=0.000 $=0.0000 wall=33s
+gpt-6-sol-nr2 offensive B=10  batch  keyed     rep=0 n=860 acc=0.828 refused=0.000 missing=0.000 $=0.0000 wall=35s
+wrote results/main/B10__gpt-6-sol-nr2__offensive.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 amazon   B=10  batch  shuffled  rep=0 n=1000 acc=0.601 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 amazon   B=10  batch  shuffled1 rep=0 n=1000 acc=0.604 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 amazon   B=10  batch  shuffled2 rep=0 n=1000 acc=0.620 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 amazon   B=10  batch  shuffled3 rep=0 n=1000 acc=0.623 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 amazon   B=10  batch  sorted    rep=0 n=1000 acc=0.611 refused=0.000 missing=0.000 $=0.0000 wall=50s
+gpt-6-sol-nr2 amazon   B=10  batch  keyed     rep=0 n=1000 acc=0.614 refused=0.000 missing=0.000 $=0.0000 wall=44s
+wrote results/main/B10__gpt-6-sol-nr2__amazon.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr2 imdb     B=10  batch  shuffled  rep=1 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=51s
+wrote results/main/R10__gpt-6-sol-nr2__imdb.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 yelp     B=10  batch  shuffled  rep=1 n=1000 acc=0.695 refused=0.000 missing=0.000 $=0.0000 wall=68s
+wrote results/main/R10__gpt-6-sol-nr2__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 agnews   B=10  batch  shuffled  rep=1 n=1000 acc=0.903 refused=0.000 missing=0.000 $=0.0000 wall=40s
+wrote results/main/R10__gpt-6-sol-nr2__agnews.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 emotion  B=10  batch  shuffled  rep=1 n=1000 acc=0.642 refused=0.000 missing=0.000 $=0.0000 wall=38s
+wrote results/main/R10__gpt-6-sol-nr2__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 hate     B=10  batch  shuffled  rep=1 n=1000 acc=0.771 refused=0.000 missing=0.000 $=0.0000 wall=41s
+wrote results/main/R10__gpt-6-sol-nr2__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 offensive B=10  batch  shuffled  rep=1 n=860 acc=0.829 refused=0.000 missing=0.000 $=0.0000 wall=35s
+wrote results/main/R10__gpt-6-sol-nr2__offensive.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 amazon   B=10  batch  shuffled  rep=1 n=1000 acc=0.606 refused=0.000 missing=0.000 $=0.0000 wall=42s
+wrote results/main/R10__gpt-6-sol-nr2__amazon.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr2 imdb     B=10  batch  perm1     rep=0 n=1000 acc=0.969 refused=0.000 missing=0.000 $=0.0000 wall=39s
+gpt-6-sol-nr2 imdb     B=10  batch  perm2     rep=0 n=1000 acc=0.967 refused=0.000 missing=0.000 $=0.0000 wall=39s
+wrote results/main/P__gpt-6-sol-nr2__imdb.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 yelp     B=10  batch  perm1     rep=0 n=1000 acc=0.696 refused=0.000 missing=0.000 $=0.0000 wall=44s
+gpt-6-sol-nr2 yelp     B=10  batch  perm2     rep=0 n=1000 acc=0.698 refused=0.000 missing=0.000 $=0.0000 wall=44s
+wrote results/main/P__gpt-6-sol-nr2__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 agnews   B=10  batch  perm1     rep=0 n=1000 acc=0.896 refused=0.000 missing=0.000 $=0.0000 wall=49s
+gpt-6-sol-nr2 agnews   B=10  batch  perm2     rep=0 n=1000 acc=0.899 refused=0.000 missing=0.000 $=0.0000 wall=68s
+wrote results/main/P__gpt-6-sol-nr2__agnews.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 emotion  B=10  batch  perm1     rep=0 n=1000 acc=0.654 refused=0.000 missing=0.000 $=0.0000 wall=41s
+gpt-6-sol-nr2 emotion  B=10  batch  perm2     rep=0 n=1000 acc=0.638 refused=0.000 missing=0.000 $=0.0000 wall=37s
+wrote results/main/P__gpt-6-sol-nr2__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 hate     B=10  batch  perm1     rep=0 n=1000 acc=0.762 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-sol-nr2 hate     B=10  batch  perm2     rep=0 n=1000 acc=0.790 refused=0.000 missing=0.000 $=0.0000 wall=38s
+wrote results/main/P__gpt-6-sol-nr2__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 offensive B=10  batch  perm1     rep=0 n=860 acc=0.820 refused=0.000 missing=0.000 $=0.0000 wall=34s
+gpt-6-sol-nr2 offensive B=10  batch  perm2     rep=0 n=860 acc=0.817 refused=0.000 missing=0.000 $=0.0000 wall=35s
+wrote results/main/P__gpt-6-sol-nr2__offensive.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+gpt-6-sol-nr2 amazon   B=10  batch  perm1     rep=0 n=1000 acc=0.617 refused=0.000 missing=0.000 $=0.0000 wall=49s
+gpt-6-sol-nr2 amazon   B=10  batch  perm2     rep=0 n=1000 acc=0.609 refused=0.000 missing=0.000 $=0.0000 wall=40s
+wrote results/main/P__gpt-6-sol-nr2__amazon.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6.1-sol': 0.0, 'gpt-6-astra': 0.0, 'glm-5.3-gw': 0.0, 'kimi-k3': 0.0, 'kimi-k3-gw': 0.0, 'gpt-6-sol-nr2': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr2 dbpedia  B=10  batch  shuffled  rep=0 n=1000 acc=0.980 refused=0.000 missing=0.000 $=0.0000 wall=48s
+gpt-6-sol-nr2 dbpedia  B=10  batch  shuffled1 rep=0 n=1000 acc=0.981 refused=0.000 missing=0.000 $=0.0000 wall=49s
+gpt-6-sol-nr2 dbpedia  B=10  batch  stored    rep=0 n=1000 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=46s
+gpt-6-sol-nr2 dbpedia acc random 0.9805 stored minus random (pp) 0.55 p 0.05845 CS 0.003
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr2 agnews accuracy by condition {'mixed': 0.908, 'other': 0.904, 'same': 0.906} other: label = neighbors' class 0.026
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr2 emotion accuracy by condition {'mixed': 0.668, 'other': 0.672, 'same': 0.654} other: label = neighbors' class 0.064
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+VENDOR DOWN gpt-6-sol-nr2
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+VENDOR DOWN gpt-6-sol-nr2
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+VENDOR DOWN gpt-6-sol-nr2
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr2 dbpedia  B=10  batch  shuffled  rep=0 n=1000 acc=0.980 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr2 dbpedia  B=10  batch  shuffled1 rep=0 n=1000 acc=0.981 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr2 dbpedia  B=10  batch  stored    rep=0 n=1000 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr2 dbpedia acc random 0.9805 stored minus random (pp) 0.55 p 0.05845 CS 0.003
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr2 agnews accuracy by condition {'mixed': 0.908, 'other': 0.904, 'same': 0.906} other: label = neighbors' class 0.026
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr2 emotion accuracy by condition {'mixed': 0.668, 'other': 0.672, 'same': 0.654} other: label = neighbors' class 0.064
+Traceback (most recent call last):
+  File "code/block_uc.py", line 92, in <module>
+    block_c(model, t)
+  File "code/block_uc.py", line 77, in block_c
+    rows = list(ex.map(run, jobs))
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/_base.py", line 608, in result_iterator
+    yield fs.pop().result()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/_base.py", line 445, in result
+    return self.__get_result()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "code/block_uc.py", line 73, in run
+    preds, _, _ = ask(model, spec, [df.text[i] for i in g], 0)
+  File "code/block_uc.py", line 23, in ask
+    r = llm.chat(model, pilot.prompt_batch(spec, texts), max_tokens=60 * len(texts) + 200, rep=rep)
+  File "code/llm.py", line 165, in chat
+    raise RuntimeError(err)
+RuntimeError: 422 {"error":{"message":"Budget has been exceeded! Team=ea4ac7de-5194-4ba0-a658-c640b6e0a588 Current cost: 950.4044724613311, Max budget: 950.0","type":"budget_exceeded","param":null,"code":"422"}}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+VENDOR DOWN gpt-6-sol-nr2
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+VENDOR DOWN gpt-6-sol-nr2
+GPT-NR2 DONE Tue Nov 10 18:39:36 CST 2026

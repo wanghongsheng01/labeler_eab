@@ -53,9 +53,13 @@ def main():
                     g = [int(t) for t in tids[i:i + int(B)]]
                     msgs, mt = prompt(fmt, spec, [df.text[t] for t in g])
                     extra = {"response_format": {"type": "json_object"}} if fmt == "semajson" else None
+                    fl = True
                     key = llm.request(model, msgs, max_tokens=mt, rep=int(rep), extra=extra)[3]
+                    if not os.path.exists(os.path.join(llm.CACHE_DIR, key[:2], key + ".json")):  # ran before the token floor
+                        fl = False
+                        key = llm.request(model, msgs, max_tokens=mt, rep=int(rep), extra=extra, floor=False)[3]
                     try:
-                        r = llm.chat(model, msgs, max_tokens=mt, rep=int(rep), extra=extra)
+                        r = llm.chat(model, msgs, max_tokens=mt, rep=int(rep), extra=extra, floor=fl)
                     except RuntimeError:  # not in the cache: the call failed in the original run (pred = -3)
                         r = {"status": "error", "text": None}
                         n_miss += 1

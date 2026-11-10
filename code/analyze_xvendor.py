@@ -15,12 +15,15 @@ from tasks import load
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M = f"{HERE}/results/main"
-MODELS = ("gpt-6-sol-nr", "claude-opus-5.5", "qwen2.5-3b", "qwen2.5-7b")
+MODELS = ("gpt-6-sol-nr2", "claude-opus-5.5", "qwen2.5-3b", "qwen2.5-7b")
+# `python analyze_xvendor.py all`: every labeler, planned ones included, for the all-labeler table (results/all_summary.csv)
+ALL = ("ds-flash", "ds-pro", "glm-5.3-flash", "kimi-k2.6", "gpt-6-sol-nr2", "gpt-6.1-sol", "gpt-6-astra", "claude-opus-5.5",
+       "kimi-k3-gw", "glm-5.3-gw", "qwen3.8-27b", "qwen2.5-3b", "qwen2.5-7b")
 rng = np.random.default_rng(0)
 
 
 def files(model):
-    return [f for f in glob.glob(f"{M}/*__{model}__*.csv") if os.path.basename(f).split("__")[0] in ("B10", "B10s", "R10", "P", "L")]
+    return [f for f in glob.glob(f"{M}/*__{model}__*.csv") if os.path.basename(f).split("__")[0] in ("B", "R", "B10", "B10s", "R10", "P", "L")]
 
 
 def boot(v, cl, n=2000):
@@ -40,7 +43,8 @@ def zdiff(ok_o, base, cl):
 
 def main():
     rows = []
-    for model in MODELS:
+    every = len(sys.argv) > 1 and sys.argv[1] == "all"
+    for model in (ALL if every else MODELS):
         fs = files(model)
         if not fs:
             continue
@@ -83,7 +87,7 @@ def main():
     for o in ["sorted", "keyed"]:
         p = D[f"{o}_p"].values; k = np.argsort(p); adj = np.empty(len(p))
         adj[k] = np.minimum(1, np.maximum.accumulate((len(p) - np.arange(len(p))) * p[k])); D[f"{o}_p_holm"] = adj
-    D.to_csv(f"{HERE}/results/xv_summary.csv", index=False)
+    D.to_csv(f"{HERE}/results/{'all_summary' if every else 'xv_summary'}.csv", index=False)
     print(D.round(4).to_string())
 
 

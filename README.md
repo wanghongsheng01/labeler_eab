@@ -1,6 +1,6 @@
 # Artifacts for "Semantic Operators Are Not Tuple Functions: Batching, Physical Order, and Refusals in LLM Labelers"
 
-Hongsheng Wang (Zhejiang University). Repository: <https://github.com/wanghongsheng01/labeler_eab>.
+Hongsheng Wang and Dazhen Deng (Zhejiang University). Repository: <https://github.com/wanghongsheng01/labeler_eab>.
 
 This repository contains the protocol, code, per-tuple outputs, per-call logs and costs needed to reproduce every number, table and figure of the paper. No API key is needed to reproduce the analyses.
 
@@ -71,7 +71,9 @@ python figures.py && python tables.py   # -> paper/figs/*.pdf, paper/tables/*.te
 | Blocks F and H (selective filters, DBpedia as stored) | `block_f.py`, `block_h.py`, `analyze_f.py` | `results/f_summary.csv`, `h_summary.csv` |
 | Table IV, Fig. 3 (format and context) | `analyze_main_a.py` | `results/main_decomposition.csv`, `main_batchcurve.csv` |
 | Table V, Fig. 4 (refusals) | `block_d.py`, `refusal_mc.py`, `gt_scale.py` | `results/main_refusal.txt`, `refusal_mc.csv`, `gt_scale.csv` |
-| Table VI (added labelers), Block T, Block U | `analyze_xvendor.py`, `analyze_tasks_ext.py`, `block_uc.py` | `results/xv_summary.csv`, `xt_summary.csv`, `results/main/U__*.csv.gz` |
+| Table VI (all labelers), Block T, Block U | `analyze_xvendor.py all`, `analyze_tasks_ext.py`, `block_uc.py` | `results/all_summary.csv`, `xv_summary.csv`, `xt_summary.csv`, `results/main/U__*.csv.gz` |
+| Table VII (practice) | `practice_table.py` | `results/practice_summary.csv` |
+| GPT-6 channel check | `channel_check.py` | `results/channel_check.csv` |
 | Block V (throughput, served names, GLM-4.5 refusals) | `block_v.py` | `results/main/V1__*.csv.gz`, `V2_served.csv.gz`, `V3__ds-flash.csv.gz` |
 | L2 (two groupings), F5 (GLM reasoning) | `analyze_1109.py` | `results/l2_two_groupings.csv`, `glm_reasoning_rerun.csv` |
 
@@ -88,7 +90,8 @@ Create a JSON file outside the repository, e.g. `~/.config/llm_keys.json` (chmod
  "local7":   {"api_key": "none", "base_url": "http://<gpu-host>:8080/v1"}}
 ```
 
-GPT-6 is reported as `gpt-6-sol-nr`: `gpt-6-sol` requested with `reasoning_effort: "none"`, because its default reasons in 80% of the calls (`code/run_gpt_nr.sh`, `code/run_gpt_nr_ext.sh`; the earlier default-reasoning runs remain in `results/main` as `gpt-6-sol`). On 2026-11-10 the first gateway went down and the remaining calls went to a second OpenAI-compatible gateway serving the same model; the served model of every call is logged.
+The newest gateway models of Table VI (`code/run_newest.sh`, 2026-11-10) are `gpt-6.1-sol` (reasoning effort low), `gpt-6-astra` (minimal), `kimi-k3-gw` and `glm-5.3-gw` (thinking disabled; output limit 4,000 tokens after AG News). Table VI's GPT-6 is `gpt-6-sol-nr2`: the same requests as `gpt-6-sol-nr` sent only through the second gateway (`code/run_gpt_nr2.sh`), so that every cell comes from one channel; `code/channel_check.py` compares the two channels.
+GPT-6 was first run as `gpt-6-sol-nr`: `gpt-6-sol` requested with `reasoning_effort: "none"`, because its default reasons in 80% of the calls (`code/run_gpt_nr.sh`, `code/run_gpt_nr_ext.sh`; the earlier default-reasoning runs remain in `results/main` as `gpt-6-sol`). On 2026-11-10 the first gateway went down and the remaining calls went to a second OpenAI-compatible gateway serving the same model; the served model of every call is logged.
 The added labelers of Section V-E use `gateway` (GPT-6, Claude) and `local`, a llama.cpp server
 (`python -m llama_cpp.server --model qwen2.5-3b-instruct-q4_k_m.gguf --n_ctx 8192 --seed 0`, the GGUF file from the
 `Qwen/Qwen2.5-3B-Instruct-GGUF` repository on Hugging Face, SHA-256 `626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d`), queried one request at a time.

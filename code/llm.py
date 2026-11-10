@@ -24,7 +24,8 @@ MODELS = {"ds-flash": ("deepseek", "deepseek-flash"), "ds-pro": ("deepseek", "de
           "glm-air-k3": ("glm3", "glm-4.5-air"),
           "glm-5.3": ("glmplan", "glm-5.3"), "glm-5.3-flash": ("glmplan", "glm-5.3-flash"),
           # international labelers through the company gateway (a router, unlike the first-party endpoints above)
-          "gpt-6-sol": ("gateway", "gpt-6-sol"), "gpt-6-sol-nr": ("gateway", "gpt-6-sol"), "claude-opus-5.5": ("gateway", "claude-opus-5-5"),
+          "gpt-6-sol": ("gateway", "gpt-6-sol"), "gpt-6-sol-nr": ("gateway", "gpt-6-sol"), "gpt-6-sol-nr2": ("gateway2", "gpt-6-sol"), "gpt-6.1-sol": ("gateway", "gpt-6.1-sol"), "gpt-6-astra": ("gateway", "gpt-6-astra"),
+          "kimi-k3-gw": ("gateway", "Kimi-K3"), "qwen3.8-27b": ("gateway", "Qwen3.8-27B"), "glm-5.3-gw": ("gateway", "glm-5.3"), "claude-opus-5.5": ("gateway", "claude-opus-5-5"),
           # open-weight, deterministic: Qwen2.5-3B-Instruct (Q4_K_M GGUF) with greedy decoding, no request batching
           "qwen2.5-3b": ("local", "qwen2.5-3b-instruct-q4_k_m"),
           # the same family at 7B (Q4_K_M GGUF, two shards), served on an NVIDIA A10 under the same settings
@@ -40,8 +41,17 @@ PRICES["glm-air-k3"] = PRICES["glm-air"]  # placeholder: the served model's own 
 PRICES.update({"glm-5.3": (0.0, 0.0), "glm-5.3-flash": (0.0, 0.0)})
 FIXED.update({"glm-5.3": {"reasoning": {"effort": "minimal"}}, "glm-5.3-flash": {"reasoning": {"effort": "minimal"}}})
 # gateway calls are billed to the company, not per token to us: usd stays 0 and tokens are logged
-PRICES.update({"gpt-6-sol-nr": (0.0, 0.0), "gpt-6-sol": (0.0, 0.0), "claude-opus-5.5": (0.0, 0.0), "qwen2.5-3b": (0.0, 0.0), "qwen2.5-7b": (0.0, 0.0)})
-FIXED["gpt-6-sol-nr"] = {"reasoning_effort": "none"}  # the gateway accepts it (checked 2026-11-09); the default reasons
+PRICES.update({"gpt-6-sol-nr2": (0.0, 0.0), "gpt-6.1-sol": (0.0, 0.0), "gpt-6-astra": (0.0, 0.0), "kimi-k3-gw": (0.0, 0.0), "qwen3.8-27b": (0.0, 0.0), "glm-5.3-gw": (0.0, 0.0), "gpt-6-sol-nr": (0.0, 0.0), "gpt-6-sol": (0.0, 0.0), "claude-opus-5.5": (0.0, 0.0), "qwen2.5-3b": (0.0, 0.0), "qwen2.5-7b": (0.0, 0.0)})
+FIXED["gpt-6-sol-nr"] = {"reasoning_effort": "none"}
+# the same request through the second gateway only, so that every GPT-6 cell comes from one channel;
+# gpt-6-sol-nr mixes the first gateway (until 2026-11-09 20:00) and the second
+FIXED["gpt-6-sol-nr2"] = {"reasoning_effort": "none"}
+# endpoints that still reason at their lowest setting: the hidden reasoning counts against the output limit and
+# truncated 30% of the Emotion answers at 60 B + 200 tokens (2026-11-10), so their limit is raised
+MAX_TOKENS_FLOOR = {"kimi-k3-gw": 4000, "glm-5.3-gw": 4000}
+# newest models on the gateway (added 2026-11-10), each at the lowest reasoning setting it accepts
+FIXED.update({"gpt-6.1-sol": {"reasoning_effort": "low"}, "gpt-6-astra": {"reasoning_effort": "minimal"},
+              "kimi-k3-gw": {"thinking": {"type": "disabled"}}, "glm-5.3-gw": {"thinking": {"type": "disabled"}}})  # the gateway accepts it (checked 2026-11-09); the default reasons
 FIXED["claude-opus-5.5"] = {"temperature": None}  # "temperature is deprecated for this model" on part of the gateway
 # cache entries older than CACHE_AFTER (unix time) are ignored and re-fetched, e.g. to keep pilot-era answers out of
 # the main runs (the main runs use CACHE_AFTER = the time the protocol was fixed)
@@ -68,9 +78,11 @@ def _load_spent():
 _load_spent()
 
 
-def request(model, messages, temperature=0.0, max_tokens=512, rep=0, extra=None):
+def request(model, messages, temperature=0.0, max_tokens=512, rep=0, extra=None, floor=True):
     """Request body and cache key (SHA-256 of provider, body and repetition index) of a call."""
     prov, name = MODELS[model]
+    if floor:  # AG News of kimi-k3-gw and glm-5.3-gw ran before the floor was set (export_calls.py rebuilds both)
+        max_tokens = max(max_tokens, MAX_TOKENS_FLOOR.get(model, 0))
     kw = {k: v for k, v in FIXED.get(model, {}).items() if k != "temperature"}
     temperature = FIXED.get(model, {}).get("temperature", temperature)
     responses = KEYS.get(prov, {}).get("api") == "responses"
@@ -85,9 +97,9 @@ def request(model, messages, temperature=0.0, max_tokens=512, rep=0, extra=None)
     return prov, body, responses, hashlib.sha256(json.dumps([prov, body, rep], sort_keys=True).encode()).hexdigest()
 
 
-def chat(model, messages, temperature=0.0, max_tokens=512, rep=0, retries=8, extra=None):
+def chat(model, messages, temperature=0.0, max_tokens=512, rep=0, retries=8, extra=None, floor=True):
     """Returns dict(text, usage, usd, latency, status) where status is 'ok' or 'refused'."""
-    prov, body, responses, key = request(model, messages, temperature, max_tokens, rep, extra)
+    prov, body, responses, key = request(model, messages, temperature, max_tokens, rep, extra, floor)
     path = os.path.join(CACHE_DIR, key[:2], key + ".json")
     if os.path.exists(path) and os.path.getmtime(path) >= CACHE_AFTER:
         return json.load(open(path))

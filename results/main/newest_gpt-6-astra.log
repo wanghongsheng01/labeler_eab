@@ -1,0 +1,31 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-astra agnews   B=10  batch  shuffled  rep=0 n=500 acc=0.936 refused=0.000 missing=0.000 $=0.0000 wall=41s
+gpt-6-astra agnews   B=10  batch  shuffled1 rep=0 n=500 acc=0.936 refused=0.000 missing=0.000 $=0.0000 wall=47s
+gpt-6-astra agnews   B=10  batch  sorted    rep=0 n=500 acc=0.936 refused=0.000 missing=0.000 $=0.0000 wall=47s
+gpt-6-astra agnews   B=10  batch  keyed     rep=0 n=500 acc=0.938 refused=0.000 missing=0.000 $=0.0000 wall=47s
+gpt-6-astra agnews   B=10  batch  perm1     rep=0 n=500 acc=0.944 refused=0.000 missing=0.000 $=0.0000 wall=55s
+gpt-6-astra agnews   B=10  batch  shuffled  rep=1 n=500 acc=0.934 refused=0.000 missing=0.000 $=0.0000 wall=66s
+wrote results/main/L__gpt-6-astra__agnews.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6-astra': 0.0}
+gpt-6-astra emotion  B=10  batch  shuffled  rep=0 n=500 acc=0.768 refused=0.000 missing=0.000 $=0.0000 wall=79s
+gpt-6-astra emotion  B=10  batch  shuffled1 rep=0 n=500 acc=0.762 refused=0.000 missing=0.000 $=0.0000 wall=104s
+gpt-6-astra emotion  B=10  batch  sorted    rep=0 n=500 acc=0.780 refused=0.000 missing=0.000 $=0.0000 wall=92s
+gpt-6-astra emotion  B=10  batch  keyed     rep=0 n=500 acc=0.766 refused=0.000 missing=0.000 $=0.0000 wall=80s
+gpt-6-astra emotion  B=10  batch  perm1     rep=0 n=500 acc=0.790 refused=0.000 missing=0.000 $=0.0000 wall=101s
+gpt-6-astra emotion  B=10  batch  shuffled  rep=1 n=500 acc=0.776 refused=0.000 missing=0.000 $=0.0000 wall=75s
+wrote results/main/L__gpt-6-astra__emotion.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6-astra': 0.0}
+gpt-6-astra yelp     B=10  batch  shuffled  rep=0 n=500 acc=0.720 refused=0.000 missing=0.000 $=0.0000 wall=37s
+gpt-6-astra yelp     B=10  batch  shuffled1 rep=0 n=500 acc=0.718 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-astra yelp     B=10  batch  sorted    rep=0 n=500 acc=0.696 refused=0.000 missing=0.000 $=0.0000 wall=38s
+gpt-6-astra yelp     B=10  batch  keyed     rep=0 n=500 acc=0.724 refused=0.000 missing=0.000 $=0.0000 wall=40s
+gpt-6-astra yelp     B=10  batch  perm1     rep=0 n=500 acc=0.722 refused=0.000 missing=0.000 $=0.0000 wall=42s
+gpt-6-astra yelp     B=10  batch  shuffled  rep=1 n=500 acc=0.722 refused=0.000 missing=0.000 $=0.0000 wall=42s
+wrote results/main/L__gpt-6-astra__yelp.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6-astra': 0.0}
+gpt-6-astra hate     B=10  batch  shuffled  rep=0 n=500 acc=0.818 refused=0.000 missing=0.000 $=0.0000 wall=108s
+gpt-6-astra hate     B=10  batch  shuffled1 rep=0 n=500 acc=0.804 refused=0.000 missing=0.000 $=0.0000 wall=119s
+gpt-6-astra hate     B=10  batch  sorted    rep=0 n=500 acc=0.772 refused=0.000 missing=0.000 $=0.0000 wall=127s
+gpt-6-astra hate     B=10  batch  keyed     rep=0 n=500 acc=0.802 refused=0.000 missing=0.000 $=0.0000 wall=168s
+gpt-6-astra hate     B=10  batch  perm1     rep=0 n=500 acc=0.808 refused=0.000 missing=0.000 $=0.0000 wall=131s
+gpt-6-astra hate     B=10  batch  shuffled  rep=1 n=500 acc=0.818 refused=0.000 missing=0.000 $=0.0000 wall=110s
+wrote results/main/L__gpt-6-astra__hate.csv spent today: {'gpt-6-sol-nr': 0.0, 'gpt-6-astra': 0.0}
+NEWEST DONE gpt-6-astra Tue Nov 10 16:41:36 CST 2026

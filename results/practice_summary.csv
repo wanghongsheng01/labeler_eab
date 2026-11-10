@@ -1,0 +1,10 @@
+rule,metric,common,recommended,better
+L1,Holm-significant cells,15/35,2/35,low
+L1,"Median GROUP BY error ($L_1$, \%)",12.7,8.1,low
+L1,"DBpedia accuracy, DS-Flash (\%)",72.3,98.2,high
+L1,"Refusal bias, AG News (pt)",3.08,0.38,low
+L2,Unstable tuples found (median \%),2.5,19.7,high
+L3,Pairs misattributed to context,17/28,0/28,low
+L4,Calls to locate the 6 triggers,130,6,low
+L4,Clustered GROUP BY bias (pt),3.08,0.00,low
+L5,Labels on the wrong model (\%),100,0,low
