@@ -1,0 +1,115 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr imdb     B=10  batch  shuffled  rep=0 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=71s
+gpt-6-sol-nr imdb     B=10  batch  shuffled1 rep=0 n=1000 acc=0.966 refused=0.000 missing=0.000 $=0.0000 wall=80s
+.venv/bin/python: can't open file '<tmp>': [Errno 2] No such file or directory
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr imdb     B=10  batch  shuffled  rep=0 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr imdb     B=10  batch  shuffled1 rep=0 n=1000 acc=0.966 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr imdb     B=10  batch  shuffled2 rep=0 n=1000 acc=0.972 refused=0.000 missing=0.000 $=0.0000 wall=37s
+gpt-6-sol-nr imdb     B=10  batch  shuffled3 rep=0 n=1000 acc=0.965 refused=0.000 missing=0.000 $=0.0000 wall=83s
+gpt-6-sol-nr imdb     B=10  batch  sorted    rep=0 n=1000 acc=0.966 refused=0.000 missing=0.000 $=0.0000 wall=69s
+gpt-6-sol-nr imdb     B=10  batch  keyed     rep=0 n=1000 acc=0.966 refused=0.000 missing=0.000 $=0.0000 wall=86s
+wrote results/main/B10__gpt-6-sol-nr__imdb.csv spent today: {'ds-flash': 0.136, 'glm-flash': 0.0, 'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr yelp     B=10  batch  shuffled  rep=0 n=1000 acc=0.689 refused=0.000 missing=0.000 $=0.0000 wall=71s
+gpt-6-sol-nr yelp     B=10  batch  shuffled1 rep=0 n=1000 acc=0.690 refused=0.000 missing=0.000 $=0.0000 wall=64s
+gpt-6-sol-nr yelp     B=10  batch  shuffled2 rep=0 n=1000 acc=0.690 refused=0.000 missing=0.000 $=0.0000 wall=82s
+gpt-6-sol-nr yelp     B=10  batch  shuffled3 rep=0 n=1000 acc=0.690 refused=0.000 missing=0.000 $=0.0000 wall=86s
+gpt-6-sol-nr yelp     B=10  batch  sorted    rep=0 n=1000 acc=0.676 refused=0.000 missing=0.000 $=0.0000 wall=102s
+gpt-6-sol-nr yelp     B=10  batch  keyed     rep=0 n=1000 acc=0.681 refused=0.000 missing=0.000 $=0.0000 wall=122s
+wrote results/main/B10__gpt-6-sol-nr__yelp.csv spent today: {'ds-flash': 0.136, 'glm-flash': 0.0, 'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr agnews   B=10  batch  shuffled  rep=0 n=1000 acc=0.902 refused=0.000 missing=0.000 $=0.0000 wall=178s
+gpt-6-sol-nr agnews   B=10  batch  shuffled1 rep=0 n=1000 acc=0.906 refused=0.000 missing=0.000 $=0.0000 wall=158s
+gpt-6-sol-nr agnews   B=10  batch  shuffled2 rep=0 n=1000 acc=0.906 refused=0.000 missing=0.000 $=0.0000 wall=125s
+gpt-6-sol-nr agnews   B=10  batch  shuffled3 rep=0 n=1000 acc=0.895 refused=0.000 missing=0.000 $=0.0000 wall=114s
+gpt-6-sol-nr agnews   B=10  batch  sorted    rep=0 n=1000 acc=0.900 refused=0.000 missing=0.000 $=0.0000 wall=119s
+gpt-6-sol-nr agnews   B=10  batch  keyed     rep=0 n=1000 acc=0.904 refused=0.000 missing=0.000 $=0.0000 wall=99s
+wrote results/main/B10__gpt-6-sol-nr__agnews.csv spent today: {'ds-flash': 0.136, 'glm-flash': 0.0, 'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr emotion  B=10  batch  shuffled  rep=0 n=1000 acc=0.652 refused=0.000 missing=0.000 $=0.0000 wall=153s
+gpt-6-sol-nr emotion  B=10  batch  shuffled1 rep=0 n=1000 acc=0.643 refused=0.000 missing=0.000 $=0.0000 wall=140s
+gpt-6-sol-nr emotion  B=10  batch  shuffled2 rep=0 n=1000 acc=0.652 refused=0.000 missing=0.000 $=0.0000 wall=104s
+gpt-6-sol-nr emotion  B=10  batch  shuffled3 rep=0 n=1000 acc=0.638 refused=0.000 missing=0.000 $=0.0000 wall=166s
+gpt-6-sol-nr emotion  B=10  batch  sorted    rep=0 n=1000 acc=0.631 refused=0.000 missing=0.000 $=0.0000 wall=166s
+gpt-6-sol-nr emotion  B=10  batch  keyed     rep=0 n=1000 acc=0.643 refused=0.000 missing=0.000 $=0.0000 wall=189s
+wrote results/main/B10__gpt-6-sol-nr__emotion.csv spent today: {'ds-flash': 0.136, 'glm-flash': 0.0, 'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr hate     B=10  batch  shuffled  rep=0 n=1000 acc=0.773 refused=0.000 missing=0.000 $=0.0000 wall=193s
+gpt-6-sol-nr hate     B=10  batch  shuffled1 rep=0 n=1000 acc=0.789 refused=0.000 missing=0.000 $=0.0000 wall=165s
+gpt-6-sol-nr hate     B=10  batch  shuffled2 rep=0 n=1000 acc=0.775 refused=0.000 missing=0.000 $=0.0000 wall=181s
+gpt-6-sol-nr hate     B=10  batch  shuffled3 rep=0 n=1000 acc=0.770 refused=0.000 missing=0.000 $=0.0000 wall=158s
+gpt-6-sol-nr hate     B=10  batch  sorted    rep=0 n=1000 acc=0.741 refused=0.000 missing=0.000 $=0.0000 wall=216s
+gpt-6-sol-nr hate     B=10  batch  keyed     rep=0 n=1000 acc=0.762 refused=0.000 missing=0.000 $=0.0000 wall=181s
+wrote results/main/B10__gpt-6-sol-nr__hate.csv spent today: {'ds-flash': 0.136, 'glm-flash': 0.0, 'gpt-6-sol-nr': 0.0}
+ERR gpt-6-sol-nr offensive 10 0 564 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 234 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 673 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 124 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 755 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 340 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 394 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 500 [Errno 1] Operation not permitted: 'cache/usage.log'
+ERR gpt-6-sol-nr offensive 10 0 534 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 159 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 187 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 342 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 585 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 370 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 602 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 268 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 850 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 399 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 523 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 408 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 540 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 48 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 179 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 237 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 710 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 275 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 668 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 427 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 228 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 409 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 563 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 129 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 134 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 809 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 695 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 390 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 431 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 613 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 753 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 191 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+ERR gpt-6-sol-nr offensive 10 0 377 SSLError(MaxRetryError("HTTPSConnectionPool(host='<gateway-host>', port=443): Max retries exceeded with url: /lite/v1/chat/completions (Caused by SS
+gpt-6-sol-nr offensive B=10  batch  shuffled  rep=0 n=860 acc=0.424 refused=0.000 missing=0.477 $=0.0000 wall=999s
+Traceback (most recent call last):
+  File "code/main_runs.py", line 111, in <module>
+  File "code/pilot.py", line 173, in run_cell
+  File "code/pilot.py", line 22, in load
+  File "code/tasks.py", line 58, in load
+  File ".venv/lib/python3.9/site-packages/pandas/io/parquet.py", line 669, in read_parquet
+  File ".venv/lib/python3.9/site-packages/pandas/io/parquet.py", line 258, in read
+  File ".venv/lib/python3.9/site-packages/pandas/io/parquet.py", line 141, in _get_path_or_handle
+  File ".venv/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+PermissionError: [Errno 1] Operation not permitted: 'data/raw/tweet_offensive_test.parquet'
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py", line 621, in <module>
+    main()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py", line 604, in main
+    known_paths = venv(known_paths)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py", line 522, in venv
+    with open(virtual_conf, encoding='utf-8') as f:
+PermissionError: [Errno 1] Operation not permitted: '.venv/pyvenv.cfg'
+Fatal Python error: init_import_site: Failed to import the site module
+Python runtime state: initialized
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py", line 621, in <module>
+    main()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py", line 604, in main
+    known_paths = venv(known_paths)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site.py", line 522, in venv
+    with open(virtual_conf, encoding='utf-8') as f:
+PermissionError: [Errno 1] Operation not permitted: '.venv/pyvenv.cfg'
+GPT-NR DONE Mon Nov  9 20:16:51 CST 2026

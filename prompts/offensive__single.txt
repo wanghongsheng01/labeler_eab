@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "Is this tweet offensive (insults, threats, profanity, or targeted abuse)?\nAnswer with exactly one of: not offensive, offensive.\n\nText:\n\"\"\"<TEXT 1>\"\"\"\n\nAnswer:"
+ }
+]

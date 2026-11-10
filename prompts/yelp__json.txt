@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "How many stars (1-5) did the author of this Yelp review most likely give?\nFor each of the 3 texts below, answer with exactly one of: 1, 2, 3, 4, 5.\nReturn only a JSON array of the form [{\"k\": 1, \"label\": \"...\"}, ...], one object per text, nothing else.\n\n[1] <TEXT 1>\n[2] <TEXT 2>\n[3] <TEXT 3>"
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "Which emotion does the author of this message express?\nAnswer with exactly one of: sadness, joy, love, anger, fear, surprise.\n\nText:\n\"\"\"<TEXT 1>\"\"\"\n\nAnswer:"
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "How many stars (1-5) did the author of this Yelp review most likely give?\nAnswer with exactly one of: 1, 2, 3, 4, 5.\n\nText:\n\"\"\"<TEXT 1>\"\"\"\n\nAnswer:"
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "Which emotion does the author of this message express?\nFor each of the 3 texts below, answer with exactly one of: sadness, joy, love, anger, fear, surprise.\nReturn one line per text in the form `[k] answer`, nothing else.\n\n[1] <TEXT 1>\n[2] <TEXT 2>\n[3] <TEXT 3>"
+ }
+]

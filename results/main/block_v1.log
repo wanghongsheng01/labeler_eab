@@ -1,0 +1,4 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+glm-flash {('agnews', 'ok'): 267, ('agnews', 'refused'): 7, ('hate', 'ok'): 126, ('hate', 'refused'): 2} served {'glm-4.5-flash': 393} agree with pilot 1.0
+glm-air {('agnews', 'ok'): 267, ('agnews', 'refused'): 7, ('hate', 'ok'): 126, ('hate', 'refused'): 2} served {'glm-5.3-flash': 393} agree with pilot 1.0

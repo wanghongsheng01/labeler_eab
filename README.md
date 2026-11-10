@@ -1,4 +1,4 @@
-# Artifacts for "Semantic Operators Are Not Tuple Functions: Batch Composition, Physical Order, and Refusals in Commercial LLM Labelers"
+# Artifacts for "Semantic Operators Are Not Tuple Functions: Batching, Physical Order, and Refusals in LLM Labelers"
 
 Hongsheng Wang (Zhejiang University). Repository: <https://github.com/wanghongsheng01/labeler_eab>.
 
@@ -8,7 +8,7 @@ This repository contains the protocol, code, per-tuple outputs, per-call logs an
 
 | Path | What |
 |---|---|
-| `protocol/benchmark_protocol.md` | the analysis plan with hypotheses H1--H4, written after the pilot study and saved on 2026-11-03 before the main runs (no external timestamp, so not a registration), and its change log of every later deviation |
+| `protocol/benchmark_protocol.md` | the analysis plan with hypotheses H1--H4, written after the pilot study and fixed on 2026-11-03 before the main runs, its change log of every later deviation, and the map of confirmatory and exploratory blocks |
 | `code/tasks.py` | the seven public datasets, the uniform samples (fixed seed), label sets and questions |
 | `code/fetch_data.py` | downloads the public test splits from the Hugging Face hub into `data/raw/` |
 | `code/pilot.py` | prompts (single, indexed batch, JSON), answer parsing, physical orders, one experimental cell |
@@ -29,6 +29,8 @@ This repository contains the protocol, code, per-tuple outputs, per-call logs an
 | `results/pilot/*.csv.gz` | per-tuple outputs of the pilot study |
 | `results/calls.jsonl.gz` | one JSON line per real API call of the whole study, pilot included (199,050 calls): day, time, labeler, served model, status, tokens, list-price USD, latency |
 | `results/main/calls_main.jsonl.gz` | one JSON line per call of the main runs: block, cell, call index, tuple ids in prompt order, request SHA-256, status, served model, finish reason, tokens, cost, latency, vendor error body and raw response; rebuilt by `code/export_calls.py`, which also checks every response against the released labels |
+| `prompts/` | the exact messages of every prompt format and task, and `SHA256SUMS` of the prompts and of every dataset file; `python code/check_data.py` verifies them |
+| `results/archive/` | superseded runs to which the protocol's change log refers (first main runs that reused pilot answers; partial Claude runs at temperature 0) |
 | `results/*.csv`, `results/*.txt` | the summaries that the paper reports |
 
 `pred` encodes a label index, `-1` for an unparsable answer, `-2` for a refused call and `-3` for a call that failed after all retries. `order` is `shuffled` (canonical random order), `shuffled1..3` (three further random orders of the same tuples), `sorted` (clustered on the gold label) or `keyed` (clustered on text length). The texts are not redistributed; `tid` indexes the samples drawn by `code/tasks.py`. Texts of refusal triggers are omitted on purpose; the paper describes them by paraphrased topic.
@@ -43,6 +45,8 @@ python code/fetch_data.py          # public test splits -> data/raw/ (needed for
 #   Abt-Buy (DeepMatcher, textual): tableA.csv, tableB.csv, test.csv from
 #     http://pages.cs.wisc.edu/~anhai/data1/deepmatcher_data/Textual/Abt-Buy/exp_data/  saved as abtbuy_<name>.csv
 #   Chinese Amazon reviews: test.jsonl of the Hugging Face dataset SetFit/amazon_reviews_multi_zh saved as amazon_zh_test.jsonl
+#   DBpedia-14 (Block H): the test split of fancyzhx/dbpedia_14 as one parquet file, saved as dbpedia_test.parquet
+python code/check_data.py          # SHA-256 of every data file and prompt against prompts/SHA256SUMS
 cd code
 python analyze_main.py             # H1, H2  -> results/main_composition.csv, results/main_order.csv
 python analyze_main_a.py           # H4      -> results/main_batchcurve.csv, results/main_decomposition.csv
@@ -50,8 +54,26 @@ python analyze_extra.py            # Table III, contrast effect, position effect
 python analyze_revision.py         # statistics reported in the paper and Blocks P, N, I, R2 -> results/rev_*.csv
 python analyze_review2.py          # template baseline, original H2 test, Blocks K and X -> results/rev2_*.csv
 python block_d.py                  # H3 and refusal bias (re-uses released Block D calls when no key is configured)
+python analyze_xvendor.py          # Table VI (GPT-6, Claude, Qwen-3B, Qwen-7B)   -> results/xv_summary.csv
+python analyze_tasks_ext.py        # Block T (entity matching, Chinese, Sema-style) -> results/xt_summary.csv
+python analyze_f.py                # Blocks F and H (selective filters, DBpedia as stored) -> results/f_summary.csv, h_summary.csv
+python analyze_1109.py             # two groupings suffice for CS (L2); GLM reasoning vs. rerun flips (F5)
+python refusal_mc.py               # 20,000 random layouts of the refusal bias (Fig. 4)
+python gt_scale.py                 # group-testing decode with synthetic triggers (Section V-D)
+python storage_order.py            # how 28 public test splits are stored (downloads them; Section III)
 python figures.py && python tables.py   # -> paper/figs/*.pdf, paper/tables/*.tex
 ```
+
+| Paper element | Script | Output |
+|---|---|---|
+| Fig. 1, Table III (composition, reruns, permutations) | `analyze_main.py`, `analyze_revision.py`, `analyze_extra.py` | `results/main_composition.csv`, `rev_composition.csv`, `main_querylevel.csv` |
+| Fig. 2, Blocks N, K, S, X, I, C (physical order, mechanism) | `analyze_main.py`, `analyze_revision.py`, `analyze_review2.py`, `block_uc.py` | `results/main_order.csv`, `rev_dose.csv`, `rev2_block_k.csv`, `rev2_block_x.csv`, `results/main/C__*.csv.gz` |
+| Blocks F and H (selective filters, DBpedia as stored) | `block_f.py`, `block_h.py`, `analyze_f.py` | `results/f_summary.csv`, `h_summary.csv` |
+| Table IV, Fig. 3 (format and context) | `analyze_main_a.py` | `results/main_decomposition.csv`, `main_batchcurve.csv` |
+| Table V, Fig. 4 (refusals) | `block_d.py`, `refusal_mc.py`, `gt_scale.py` | `results/main_refusal.txt`, `refusal_mc.csv`, `gt_scale.csv` |
+| Table VI (added labelers), Block T, Block U | `analyze_xvendor.py`, `analyze_tasks_ext.py`, `block_uc.py` | `results/xv_summary.csv`, `xt_summary.csv`, `results/main/U__*.csv.gz` |
+| Block V (throughput, served names, GLM-4.5 refusals) | `block_v.py` | `results/main/V1__*.csv.gz`, `V2_served.csv.gz`, `V3__ds-flash.csv.gz` |
+| L2 (two groupings), F5 (GLM reasoning) | `analyze_1109.py` | `results/l2_two_groupings.csv`, `glm_reasoning_rerun.csv` |
 
 ## Re-run the experiments (needs API keys)
 
@@ -66,6 +88,7 @@ Create a JSON file outside the repository, e.g. `~/.config/llm_keys.json` (chmod
  "local7":   {"api_key": "none", "base_url": "http://<gpu-host>:8080/v1"}}
 ```
 
+GPT-6 is reported as `gpt-6-sol-nr`: `gpt-6-sol` requested with `reasoning_effort: "none"`, because its default reasons in 80% of the calls (`code/run_gpt_nr.sh`, `code/run_gpt_nr_ext.sh`; the earlier default-reasoning runs remain in `results/main` as `gpt-6-sol`). On 2026-11-10 the first gateway went down and the remaining calls went to a second OpenAI-compatible gateway serving the same model; the served model of every call is logged.
 The added labelers of Section V-E use `gateway` (GPT-6, Claude) and `local`, a llama.cpp server
 (`python -m llama_cpp.server --model qwen2.5-3b-instruct-q4_k_m.gguf --n_ctx 8192 --seed 0`, the GGUF file from the
 `Qwen/Qwen2.5-3B-Instruct-GGUF` repository on Hugging Face, SHA-256 `626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d`), queried one request at a time.
@@ -92,7 +115,7 @@ python block_d.py                       # Block D
 
 Every call is cached under `cache/` (the cache key includes the repetition index, so reruns are real calls) and logged to `cache/usage.log`. A per-labeler daily spending guard (`DAILY_CAP`, default USD 15) stops a run before it overspends. The client accepts any OpenAI-compatible endpoint, so other vendors can be added in `code/llm.py` (`MODELS`, `PRICES`, `FIXED`).
 
-Vendors change their models, filters and prices over time. The released files are the outputs collected between 2026-11-03 and 2026-11-05; the served model of every call is recorded in `served`.
+Vendors change their models, filters and prices over time. The released files are the outputs collected between 2026-11-03 and 2026-11-09; the served model of every call is recorded in `served`.
 
 ## Datasets and licenses
 

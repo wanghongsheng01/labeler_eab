@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "How many stars (1-5) did the author of this Amazon product review most likely give?\nBelow are 3 texts, each enclosed in <text id=\"k\"> ... </text>. For each text, answer with exactly one of: 1, 2, 3, 4, 5.\nReturn one line per text in the form `[k] answer`, where k is the text's id, nothing else.\n\n<text id=\"1\">\n<TEXT 1>\n</text>\n<text id=\"2\">\n<TEXT 2>\n</text>\n<text id=\"3\">\n<TEXT 3>\n</text>"
+ }
+]

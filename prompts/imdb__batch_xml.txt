@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "What is the sentiment of this movie review?\nBelow are 3 texts, each enclosed in <text id=\"k\"> ... </text>. For each text, answer with exactly one of: negative, positive.\nReturn one line per text in the form `[k] answer`, where k is the text's id, nothing else.\n\n<text id=\"1\">\n<TEXT 1>\n</text>\n<text id=\"2\">\n<TEXT 2>\n</text>\n<text id=\"3\">\n<TEXT 3>\n</text>"
+ }
+]

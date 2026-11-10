@@ -15,7 +15,7 @@ from tasks import load
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M = f"{HERE}/results/main"
-MODELS = ("gpt-6-sol", "claude-opus-5.5", "qwen2.5-3b", "qwen2.5-7b")
+MODELS = ("gpt-6-sol-nr", "claude-opus-5.5", "qwen2.5-3b", "qwen2.5-7b")
 rng = np.random.default_rng(0)
 
 

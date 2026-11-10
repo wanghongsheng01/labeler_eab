@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "What is the topic of this news article?\nFor each of the 3 texts below, answer with exactly one of: world, sports, business, science/technology.\nReturn one line per text in the form `[k] answer`, nothing else.\n\n[1] <TEXT 1>\n[2] <TEXT 2>\n[3] <TEXT 3>"
+ }
+]

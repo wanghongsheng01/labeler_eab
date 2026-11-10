@@ -1,0 +1,4 @@
+reasoning,labels,flips,rerun_flip_rate
+both,2360,242,0.10254237288135593
+none,2500,206,0.0824
+one,1920,166,0.08645833333333333

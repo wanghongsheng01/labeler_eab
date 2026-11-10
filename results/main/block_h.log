@@ -1,0 +1,10 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ds-flash   dbpedia  B=10  batch  shuffled  rep=0 n=1000 acc=0.982 refused=0.000 missing=0.000 $=0.0321 wall=28s
+ds-flash   dbpedia  B=10  batch  shuffled1 rep=0 n=1000 acc=0.981 refused=0.000 missing=0.000 $=0.0321 wall=20s
+ds-flash   dbpedia  B=10  batch  stored    rep=0 n=1000 acc=0.723 refused=0.000 missing=0.250 $=0.0318 wall=21s
+ds-flash dbpedia acc random 0.9815 stored minus random (pp) -25.85 p 0.0 CS 0.013
+gpt-6-sol-nr dbpedia  B=10  batch  shuffled  rep=0 n=1000 acc=0.979 refused=0.000 missing=0.000 $=0.0000 wall=139s
+gpt-6-sol-nr dbpedia  B=10  batch  shuffled1 rep=0 n=1000 acc=0.983 refused=0.000 missing=0.000 $=0.0000 wall=138s
+gpt-6-sol-nr dbpedia  B=10  batch  stored    rep=0 n=1000 acc=0.985 refused=0.000 missing=0.000 $=0.0000 wall=215s
+gpt-6-sol-nr dbpedia acc random 0.981 stored minus random (pp) 0.4 p 0.08346 CS 0.006

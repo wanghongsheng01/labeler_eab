@@ -23,7 +23,7 @@ def load(name, *a, **k):
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(HERE, "results", "pilot")
 os.makedirs(OUT, exist_ok=True)
-WORKERS = {"ds-flash": 6, "ds-pro": 6, "glm-air": 2, "glm-flash": 1, "glm-air-k3": 3, "glm-5.3": 4, "glm-5.3-flash": 4, "kimi-k2.6": 3, "kimi-k3": 2, "gpt-6-sol": 8, "claude-opus-5.5": 6, "qwen2.5-3b": 1, "qwen2.5-7b": 1}
+WORKERS = {"ds-flash": 6, "ds-pro": 6, "glm-air": 2, "glm-flash": 1, "glm-air-k3": 3, "glm-5.3": 4, "glm-5.3-flash": 4, "kimi-k2.6": 3, "kimi-k3": 2, "gpt-6-sol": 8, "gpt-6-sol-nr": 8, "claude-opus-5.5": 6, "qwen2.5-3b": 1, "qwen2.5-7b": 1}
 
 
 def parse(text, labels):
@@ -140,6 +140,8 @@ def order_of(df, order, n, task=None):
         seed = int(order[8:] or 0)
         tids = np.random.default_rng(seed).permutation(tids)[:n] if seed == 0 else \
             np.random.default_rng(seed).permutation(np.random.default_rng(0).permutation(tids)[:n])
+    elif order == "stored":  # the canonical tuples in the order in which the distributed file stores them
+        tids = np.sort(np.random.default_rng(0).permutation(tids)[:n])
     elif order == "sorted":
         sub = np.random.default_rng(0).permutation(tids)[:n]
         tids = sub[np.argsort(df.gold.values[sub], kind="stable")]

@@ -1,0 +1,71 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ds-flash hate 0.05 batch_g1 recall 0.76 fpr 0.234 count_err 4.2
+ds-flash hate 0.05 batch_g2 recall 0.72 fpr 0.204 count_err 3.6
+ds-flash hate 0.05 single recall 0.4 fpr 0.037 count_err 0.1
+ds-flash hate 0.2 batch_g1 recall 0.665 fpr 0.194 count_err 0.44
+ds-flash hate 0.2 batch_g2 recall 0.64 fpr 0.229 count_err 0.555
+ds-flash hate 0.2 single recall 0.28 fpr 0.041 count_err -0.555
+ds-flash hate 0.5 batch_g1 recall 0.68 fpr 0.238 count_err -0.082
+ds-flash hate 0.5 batch_g2 recall 0.718 fpr 0.268 count_err -0.014
+ds-flash hate 0.5 single recall 0.318 fpr 0.04 count_err -0.642
+Traceback (most recent call last):
+  File "code/block_f.py", line 64, in <module>
+    main(sys.argv[1], sys.argv[2:] or list(POS))
+  File "code/block_f.py", line 49, in main
+    base = sample(df, task, prev)
+  File "code/block_f.py", line 25, in sample
+    return np.concatenate([rng.choice(pos, k, replace=False), rng.choice(neg, N - k, replace=False)])
+  File "numpy/random/_generator.pyx", line 917, in numpy.random._generator.Generator.choice
+ValueError: Cannot take a larger sample than population when replace is False
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ds-flash hate 0.05 batch_g1 recall 0.76 fpr 0.234 count_err 4.2
+ds-flash hate 0.05 batch_g2 recall 0.72 fpr 0.204 count_err 3.6
+ds-flash hate 0.05 single recall 0.4 fpr 0.037 count_err 0.1
+ds-flash hate 0.2 batch_g1 recall 0.665 fpr 0.194 count_err 0.44
+ds-flash hate 0.2 batch_g2 recall 0.64 fpr 0.229 count_err 0.555
+ds-flash hate 0.2 single recall 0.28 fpr 0.041 count_err -0.555
+ds-flash hate 0.5 batch_g1 recall 0.68 fpr 0.238 count_err -0.082
+ds-flash hate 0.5 batch_g2 recall 0.718 fpr 0.268 count_err -0.014
+ds-flash hate 0.5 single recall 0.318 fpr 0.04 count_err -0.642
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ds-flash hate 0.05 batch_b1 recall 0.58 fpr 0.092 count_err 1.32
+ds-flash hate 0.05 batch_g1 recall 0.76 fpr 0.234 count_err 4.2
+ds-flash hate 0.05 batch_g2 recall 0.72 fpr 0.204 count_err 3.6
+ds-flash hate 0.05 single recall 0.4 fpr 0.037 count_err 0.1
+ds-flash hate 0.2 batch_b1 recall 0.475 fpr 0.094 count_err -0.15
+ds-flash hate 0.2 batch_g1 recall 0.665 fpr 0.194 count_err 0.44
+ds-flash hate 0.2 batch_g2 recall 0.64 fpr 0.229 count_err 0.555
+ds-flash hate 0.2 single recall 0.28 fpr 0.041 count_err -0.555
+ds-flash hate 0.5 batch_b1 recall 0.506 fpr 0.082 count_err -0.412
+ds-flash hate 0.5 batch_g1 recall 0.68 fpr 0.238 count_err -0.082
+ds-flash hate 0.5 batch_g2 recall 0.718 fpr 0.268 count_err -0.014
+ds-flash hate 0.5 single recall 0.318 fpr 0.04 count_err -0.642
+ds-flash offensive 0.05 batch_b1 recall 0.55 fpr 0.074 count_err 0.95
+ds-flash offensive 0.05 batch_g1 recall 0.65 fpr 0.121 count_err 1.95
+ds-flash offensive 0.05 batch_g2 recall 0.6 fpr 0.1 count_err 1.5
+ds-flash offensive 0.05 single recall 0.5 fpr 0.061 count_err 0.65
+ds-flash offensive 0.2 batch_b1 recall 0.5 fpr 0.069 count_err -0.225
+ds-flash offensive 0.2 batch_g1 recall 0.6 fpr 0.122 count_err 0.087
+ds-flash offensive 0.2 batch_g2 recall 0.588 fpr 0.103 count_err 0.0
+ds-flash offensive 0.2 single recall 0.45 fpr 0.044 count_err -0.375
+ds-flash offensive 0.5 batch_b1 recall 0.505 fpr 0.085 count_err -0.41
+ds-flash offensive 0.5 batch_g1 recall 0.61 fpr 0.09 count_err -0.3
+ds-flash offensive 0.5 batch_g2 recall 0.62 fpr 0.1 count_err -0.28
+ds-flash offensive 0.5 single recall 0.465 fpr 0.07 count_err -0.465
+ds-flash imdb 0.05 batch_b1 recall 0.96 fpr 0.037 count_err 0.66
+ds-flash imdb 0.05 batch_g1 recall 0.98 fpr 0.045 count_err 0.84
+ds-flash imdb 0.05 batch_g2 recall 0.98 fpr 0.046 count_err 0.86
+ds-flash imdb 0.05 single recall 0.96 fpr 0.043 count_err 0.78
+ds-flash imdb 0.2 batch_b1 recall 0.955 fpr 0.041 count_err 0.12
+ds-flash imdb 0.2 batch_g1 recall 0.965 fpr 0.044 count_err 0.14
+ds-flash imdb 0.2 batch_g2 recall 0.955 fpr 0.041 count_err 0.12
+ds-flash imdb 0.2 single recall 0.955 fpr 0.048 count_err 0.145
+ds-flash imdb 0.5 batch_b1 recall 0.97 fpr 0.044 count_err 0.014
+ds-flash imdb 0.5 batch_g1 recall 0.966 fpr 0.046 count_err 0.012
+ds-flash imdb 0.5 batch_g2 recall 0.96 fpr 0.048 count_err 0.008
+ds-flash imdb 0.5 single recall 0.966 fpr 0.054 count_err 0.02

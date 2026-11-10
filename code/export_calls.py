@@ -80,8 +80,8 @@ def main():
                         block=block, model=model, task=task, B=int(B), fmt=fmt, order=order, rep=int(rep), call=c,
                         tids=g, request_sha256=key, status=r["status"], served=r.get("served"), finish=r.get("finish"),
                         prompt_tokens=u.get("prompt_tokens"), completion_tokens=u.get("completion_tokens"),
-                        cached_tokens=u.get("prompt_cache_hit_tokens", (u.get("prompt_tokens_details") or {}).get("cached_tokens")),
-                        reasoning_tokens=(u.get("completion_tokens_details") or u.get("output_tokens_details") or {}).get("reasoning_tokens"),
+                        cached_tokens=u.get("prompt_cache_hit_tokens", u.get("cached_tokens", (u.get("prompt_tokens_details") or {}).get("cached_tokens"))),
+                        reasoning_tokens=u.get("reasoning_tokens", (u.get("completion_tokens_details") or u.get("output_tokens_details") or {}).get("reasoning_tokens")),
                         usd=r.get("usd"), latency=r.get("latency"), vendor_error=r.get("err"), response=r.get("text"))) + "\n")
                     n_calls += 1
     print(f"exported {n_calls} calls ({n_miss} not in the cache); calls whose re-parsed labels differ from the released "

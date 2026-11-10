@@ -30,22 +30,21 @@ def querylevel():
 
 def decomposition():
     # effects and tests of analyze_revision.py: format = exact McNemar (one text per call), context = z-test with
-    # standard errors clustered by call; Holm within each family of 14 contrasts. Cost saving from Block A.
-    d = pd.read_csv(f"{R}/rev_decomposition.csv").merge(
-        pd.read_csv(f"{R}/main_decomposition.csv")[["model", "task", "saving_single_to_B50"]], on=["model", "task"])
+    # standard errors clustered by call; Holm within each family of 28 contrasts. All four planned labelers.
+    d = pd.read_csv(f"{R}/rev_decomposition.csv")
     sgn = lambda v: f"{v:+.1f}".replace("-", "$-$")
     star = lambda v, p, ph: sgn(v) + (r"$^{**}$" if ph < 0.05 else r"$^{*}$" if p < 0.05 else "")
-    lines = [r"\begin{tabular}{@{}llrrrr@{}}", r"\toprule",
-             r"Labeler & Dataset & Format & Context & Context & Cost \\",
-             r" & & ($B$=1) & ($B$=10) & ($B$=50) & saving \\", r"\midrule"]
-    for m in ["ds-flash", "ds-pro"]:
-        for i, t in enumerate(TASKS):
+    ms = ["ds-flash", "ds-pro", "glm-5.3-flash", "kimi-k2.6"]
+    lines = [r"\begin{tabular}{@{}lrrrrrrrr@{}}", r"\toprule",
+             " & " + " & ".join(r"\multicolumn{2}{c}{" + MN[m] + "}" for m in ms) + r" \\",
+             "".join(rf"\cmidrule(lr){{{2 + 2 * k}-{3 + 2 * k}}}" for k in range(4)),
+             "Dataset" + " & Fmt. & Ctx." * 4 + r" \\", r"\midrule"]
+    for t in TASKS:
+        cells = []
+        for m in ms:
             r = d[(d.model == m) & (d.task == t)].iloc[0]
-            lines.append((MN[m] if i == 0 else "") + f" & {TN[t]} & {star(r.format_pp, r.format_p, r.format_p_holm)} & "
-                         f"{star(r.context10_pp, r.context10_p, r.context10_p_holm)} & "
-                         f"{star(r.context50_pp, r.context50_p, r.context50_p_holm)} & "
-                         f"{100 * r.saving_single_to_B50:.0f}\\% \\\\")
-        if m == "ds-flash": lines.append(r"\midrule")
+            cells += [star(r.format_pp, r.format_p, r.format_p_holm), star(r.context50_pp, r.context50_p, r.context50_p_holm)]
+        lines.append(TN[t] + " & " + " & ".join(cells) + r" \\")
     lines += [r"\bottomrule", r"\end{tabular}"]
     open(f"{T}/decomposition.tex", "w").write("\n".join(lines) + "\n")
 
@@ -56,7 +55,7 @@ def xvendor():
     if not os.path.exists(f):
         return
     d = pd.read_csv(f)
-    XN = {"gpt-6-sol": "GPT-6", "claude-opus-5.5": "Claude", "qwen2.5-3b": "Qwen-3B", "qwen2.5-7b": "Qwen-7B"}
+    XN = {"gpt-6-sol-nr": "GPT-6", "gpt-6-sol": "GPT-6 (default reasoning)", "claude-opus-5.5": "Claude", "qwen2.5-3b": "Qwen-3B", "qwen2.5-7b": "Qwen-7B"}
     pct = lambda v: "--" if pd.isna(v) else f"{100 * v:.1f}"
     sgn = lambda v: "--" if pd.isna(v) else f"{v:+.1f}".replace("-", "$-$")
     star = lambda v, p: sgn(v) + (r"$^{*}$" if (not pd.isna(p)) and p < 0.05 else "")

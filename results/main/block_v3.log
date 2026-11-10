@@ -1,0 +1,7 @@
+ds-flash   agnews   B=1   single shuffled  rep=31 n=1000 acc=0.875 refused=0.000 missing=0.000 $=0.0304 wall=162s
+ds-flash   agnews   B=10  batch  shuffled  rep=31 n=1000 acc=0.890 refused=0.000 missing=0.000 $=0.0244 wall=19s
+ds-flash   agnews   B=50  batch  shuffled  rep=31 n=1000 acc=0.908 refused=0.000 missing=0.000 $=0.0230 wall=8s
+    B     fmt     n    wall  tuples_per_s   acc
+0   1  single  1000  161.84          6.18  0.88
+1  10   batch  1000   19.29         51.84  0.89
+2  50   batch  1000    8.39        119.16  0.91

@@ -1,0 +1,36 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr abtbuy   B=10  batch  shuffled  rep=0 n=1916 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=2s
+gpt-6-sol-nr abtbuy   B=10  batch  shuffled1 rep=0 n=1916 acc=0.988 refused=0.000 missing=0.000 $=0.0000 wall=2s
+gpt-6-sol-nr abtbuy   B=10  batch  sorted    rep=0 n=1916 acc=0.984 refused=0.000 missing=0.000 $=0.0000 wall=1s
+gpt-6-sol-nr abtbuy   B=10  batch  keyed     rep=0 n=1916 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=2s
+gpt-6-sol-nr abtbuy   B=10  batch  shuffled  rep=1 n=1916 acc=0.986 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr abtbuy   B=10  batcher shuffled  rep=0 n=1916 acc=0.981 refused=0.000 missing=0.000 $=0.0000 wall=1s
+gpt-6-sol-nr abtbuy   B=10  batcher shuffled1 rep=0 n=1916 acc=0.984 refused=0.000 missing=0.000 $=0.0000 wall=5s
+gpt-6-sol-nr abtbuy   B=10  batcher sorted    rep=0 n=1916 acc=0.977 refused=0.000 missing=0.000 $=0.0000 wall=0s
+gpt-6-sol-nr abtbuy   B=10  batcher keyed     rep=0 n=1916 acc=0.985 refused=0.000 missing=0.000 $=0.0000 wall=1s
+gpt-6-sol-nr abtbuy   B=10  batcher shuffled  rep=1 n=1916 acc=0.984 refused=0.000 missing=0.000 $=0.0000 wall=4s
+wrote results/main/TE__gpt-6-sol-nr__abtbuy.csv spent today: {}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr amazon_zh B=10  batch  shuffled  rep=0 n=2000 acc=0.526 refused=0.000 missing=0.000 $=0.0000 wall=102s
+gpt-6-sol-nr amazon_zh B=10  batch  shuffled1 rep=0 n=2000 acc=0.531 refused=0.000 missing=0.000 $=0.0000 wall=119s
+gpt-6-sol-nr amazon_zh B=10  batch  sorted    rep=0 n=2000 acc=0.515 refused=0.000 missing=0.000 $=0.0000 wall=120s
+gpt-6-sol-nr amazon_zh B=10  batch  keyed     rep=0 n=2000 acc=0.525 refused=0.000 missing=0.000 $=0.0000 wall=114s
+gpt-6-sol-nr amazon_zh B=10  batch  shuffled  rep=1 n=2000 acc=0.527 refused=0.000 missing=0.000 $=0.0000 wall=111s
+wrote results/main/TZ__gpt-6-sol-nr__amazon_zh.csv spent today: {'gpt-6-sol-nr': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr agnews accuracy by condition {'mixed': 0.91, 'other': 0.906, 'same': 0.91} other: label = neighbors' class 0.024
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr emotion accuracy by condition {'mixed': 0.674, 'other': 0.674, 'same': 0.656} other: label = neighbors' class 0.07
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr yelp accuracy by condition {'mixed': 0.692, 'other': 0.696, 'same': 0.684} other: label = neighbors' class 0.086
+code/block_uc.py:80: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = d.groupby("cond").apply(lambda z: (z.pred == z.gold).mean()).round(4).to_dict()
+gpt-6-sol-nr hate accuracy by condition {'mixed': 0.762, 'other': 0.758, 'same': 0.766} other: label = neighbors' class 0.242
+GPT-NR EXT DONE Tue Nov 10 10:12:31 CST 2026

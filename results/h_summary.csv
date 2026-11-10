@@ -1,0 +1,7 @@
+model,order,acc,unaligned,acc_answered
+ds-flash,shuffled,0.982,0.0,0.982
+ds-flash,shuffled1,0.981,0.0,0.981
+ds-flash,stored,0.723,0.25,0.964
+gpt-6-sol-nr,shuffled,0.979,0.0,0.979
+gpt-6-sol-nr,shuffled1,0.983,0.0,0.983
+gpt-6-sol-nr,stored,0.985,0.0,0.985

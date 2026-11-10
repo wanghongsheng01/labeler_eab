@@ -1,0 +1,10 @@
+[
+ {
+  "role": "system",
+  "content": "You are a careful data annotator."
+ },
+ {
+  "role": "user",
+  "content": "What is the sentiment of this movie review?\nAnswer with exactly one of: negative, positive.\n\nText:\n\"\"\"<TEXT 1>\"\"\"\n\nAnswer:"
+ }
+]

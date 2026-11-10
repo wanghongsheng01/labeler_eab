@@ -1,0 +1,56 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr offensive B=10  batch  shuffled  rep=0 n=860 acc=0.823 refused=0.000 missing=0.000 $=0.0000 wall=53s
+gpt-6-sol-nr offensive B=10  batch  shuffled1 rep=0 n=860 acc=0.822 refused=0.000 missing=0.000 $=0.0000 wall=50s
+gpt-6-sol-nr offensive B=10  batch  shuffled2 rep=0 n=860 acc=0.822 refused=0.000 missing=0.000 $=0.0000 wall=36s
+gpt-6-sol-nr offensive B=10  batch  shuffled3 rep=0 n=860 acc=0.823 refused=0.000 missing=0.000 $=0.0000 wall=57s
+gpt-6-sol-nr offensive B=10  batch  sorted    rep=0 n=860 acc=0.806 refused=0.000 missing=0.000 $=0.0000 wall=50s
+gpt-6-sol-nr offensive B=10  batch  keyed     rep=0 n=860 acc=0.837 refused=0.000 missing=0.000 $=0.0000 wall=53s
+wrote results/main/B10__gpt-6-sol-nr__offensive.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr amazon   B=10  batch  shuffled  rep=0 n=1000 acc=0.609 refused=0.000 missing=0.000 $=0.0000 wall=74s
+gpt-6-sol-nr amazon   B=10  batch  shuffled1 rep=0 n=1000 acc=0.601 refused=0.000 missing=0.000 $=0.0000 wall=49s
+gpt-6-sol-nr amazon   B=10  batch  shuffled2 rep=0 n=1000 acc=0.613 refused=0.000 missing=0.000 $=0.0000 wall=44s
+gpt-6-sol-nr amazon   B=10  batch  shuffled3 rep=0 n=1000 acc=0.629 refused=0.000 missing=0.000 $=0.0000 wall=57s
+gpt-6-sol-nr amazon   B=10  batch  sorted    rep=0 n=1000 acc=0.613 refused=0.000 missing=0.000 $=0.0000 wall=61s
+gpt-6-sol-nr amazon   B=10  batch  keyed     rep=0 n=1000 acc=0.606 refused=0.000 missing=0.000 $=0.0000 wall=52s
+wrote results/main/B10__gpt-6-sol-nr__amazon.csv spent today: {'gpt-6-sol-nr': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr imdb     B=10  batch  shuffled  rep=1 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=97s
+wrote results/main/R10__gpt-6-sol-nr__imdb.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr yelp     B=10  batch  shuffled  rep=1 n=1000 acc=0.694 refused=0.000 missing=0.000 $=0.0000 wall=47s
+wrote results/main/R10__gpt-6-sol-nr__yelp.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr agnews   B=10  batch  shuffled  rep=1 n=1000 acc=0.903 refused=0.000 missing=0.000 $=0.0000 wall=64s
+wrote results/main/R10__gpt-6-sol-nr__agnews.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr emotion  B=10  batch  shuffled  rep=1 n=1000 acc=0.646 refused=0.000 missing=0.000 $=0.0000 wall=47s
+wrote results/main/R10__gpt-6-sol-nr__emotion.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr hate     B=10  batch  shuffled  rep=1 n=1000 acc=0.782 refused=0.000 missing=0.000 $=0.0000 wall=51s
+wrote results/main/R10__gpt-6-sol-nr__hate.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr offensive B=10  batch  shuffled  rep=1 n=860 acc=0.823 refused=0.000 missing=0.000 $=0.0000 wall=44s
+wrote results/main/R10__gpt-6-sol-nr__offensive.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr amazon   B=10  batch  shuffled  rep=1 n=1000 acc=0.606 refused=0.000 missing=0.000 $=0.0000 wall=85s
+wrote results/main/R10__gpt-6-sol-nr__amazon.csv spent today: {'gpt-6-sol-nr': 0.0}
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+gpt-6-sol-nr imdb     B=10  batch  perm1     rep=0 n=1000 acc=0.970 refused=0.000 missing=0.000 $=0.0000 wall=62s
+gpt-6-sol-nr imdb     B=10  batch  perm2     rep=0 n=1000 acc=0.965 refused=0.000 missing=0.000 $=0.0000 wall=48s
+wrote results/main/P__gpt-6-sol-nr__imdb.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr yelp     B=10  batch  perm1     rep=0 n=1000 acc=0.693 refused=0.000 missing=0.000 $=0.0000 wall=69s
+gpt-6-sol-nr yelp     B=10  batch  perm2     rep=0 n=1000 acc=0.697 refused=0.000 missing=0.000 $=0.0000 wall=88s
+wrote results/main/P__gpt-6-sol-nr__yelp.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr agnews   B=10  batch  perm1     rep=0 n=1000 acc=0.901 refused=0.000 missing=0.000 $=0.0000 wall=74s
+gpt-6-sol-nr agnews   B=10  batch  perm2     rep=0 n=1000 acc=0.895 refused=0.000 missing=0.000 $=0.0000 wall=41s
+wrote results/main/P__gpt-6-sol-nr__agnews.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr emotion  B=10  batch  perm1     rep=0 n=1000 acc=0.642 refused=0.000 missing=0.000 $=0.0000 wall=49s
+gpt-6-sol-nr emotion  B=10  batch  perm2     rep=0 n=1000 acc=0.638 refused=0.000 missing=0.000 $=0.0000 wall=65s
+wrote results/main/P__gpt-6-sol-nr__emotion.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr hate     B=10  batch  perm1     rep=0 n=1000 acc=0.759 refused=0.000 missing=0.000 $=0.0000 wall=76s
+gpt-6-sol-nr hate     B=10  batch  perm2     rep=0 n=1000 acc=0.782 refused=0.000 missing=0.000 $=0.0000 wall=64s
+wrote results/main/P__gpt-6-sol-nr__hate.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr offensive B=10  batch  perm1     rep=0 n=860 acc=0.830 refused=0.000 missing=0.000 $=0.0000 wall=50s
+gpt-6-sol-nr offensive B=10  batch  perm2     rep=0 n=860 acc=0.819 refused=0.000 missing=0.000 $=0.0000 wall=69s
+wrote results/main/P__gpt-6-sol-nr__offensive.csv spent today: {'gpt-6-sol-nr': 0.0}
+gpt-6-sol-nr amazon   B=10  batch  perm1     rep=0 n=1000 acc=0.607 refused=0.000 missing=0.000 $=0.0000 wall=65s
+gpt-6-sol-nr amazon   B=10  batch  perm2     rep=0 n=1000 acc=0.602 refused=0.000 missing=0.000 $=0.0000 wall=133s
+wrote results/main/P__gpt-6-sol-nr__amazon.csv spent today: {'gpt-6-sol-nr': 0.0}
+GPT-NR DONE Tue Nov 10 09:13:03 CST 2026
