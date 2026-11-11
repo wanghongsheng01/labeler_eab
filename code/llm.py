@@ -61,6 +61,8 @@ FIXED.update({"gpt-6.1-sol": {"reasoning_effort": "low"}, "gpt-6-astra": {"reaso
 PRICES.update({"kimi-k3.1-ark": (2.00, 10.00), "glm-5.3-zp": (1.40, 4.40)})
 PRICES["doubao-seed-2.1"] = (0.86, 4.31)  # Ark list price (CNY 6 / 30 per 1M tokens) in USD
 # both accept disabling the reasoning (0 reasoning tokens, checked 2026-11-10); Ark requires temperature 0.6 then
+# Qwen3.8-27B answers without reasoning tokens with thinking disabled (key for this model only, 2026-11-11)
+FIXED["qwen3.8-27b"] = {"thinking": {"type": "disabled"}}
 FIXED.update({"kimi-k3.1-ark": {**OFF, "temperature": 0.6}, "glm-5.3-zp": OFF, "doubao-seed-2.1": OFF})
 FIXED["claude-opus-5.5"] = {"temperature": None}  # "temperature is deprecated for this model" on part of the gateway
 # cache entries older than CACHE_AFTER (unix time) are ignored and re-fetched, e.g. to keep pilot-era answers out of

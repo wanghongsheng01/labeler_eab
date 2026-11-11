@@ -1,0 +1,31 @@
+.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+qwen3.8-27b agnews   B=10  batch  shuffled  rep=0 n=500 acc=0.874 refused=0.000 missing=0.000 $=0.0000 wall=13s
+qwen3.8-27b agnews   B=10  batch  shuffled1 rep=0 n=500 acc=0.876 refused=0.000 missing=0.000 $=0.0000 wall=11s
+qwen3.8-27b agnews   B=10  batch  sorted    rep=0 n=500 acc=0.848 refused=0.000 missing=0.000 $=0.0000 wall=15s
+qwen3.8-27b agnews   B=10  batch  keyed     rep=0 n=500 acc=0.868 refused=0.000 missing=0.000 $=0.0000 wall=15s
+qwen3.8-27b agnews   B=10  batch  perm1     rep=0 n=500 acc=0.878 refused=0.000 missing=0.000 $=0.0000 wall=13s
+qwen3.8-27b agnews   B=10  batch  shuffled  rep=1 n=500 acc=0.874 refused=0.000 missing=0.000 $=0.0000 wall=15s
+wrote results/main/L__qwen3.8-27b__agnews.csv spent today: {'qwen3.8-27b': 0.0}
+qwen3.8-27b emotion  B=10  batch  shuffled  rep=0 n=500 acc=0.610 refused=0.000 missing=0.000 $=0.0000 wall=10s
+qwen3.8-27b emotion  B=10  batch  shuffled1 rep=0 n=500 acc=0.606 refused=0.000 missing=0.000 $=0.0000 wall=11s
+qwen3.8-27b emotion  B=10  batch  sorted    rep=0 n=500 acc=0.564 refused=0.000 missing=0.000 $=0.0000 wall=11s
+qwen3.8-27b emotion  B=10  batch  keyed     rep=0 n=500 acc=0.604 refused=0.000 missing=0.000 $=0.0000 wall=9s
+qwen3.8-27b emotion  B=10  batch  perm1     rep=0 n=500 acc=0.606 refused=0.000 missing=0.000 $=0.0000 wall=14s
+qwen3.8-27b emotion  B=10  batch  shuffled  rep=1 n=500 acc=0.610 refused=0.000 missing=0.000 $=0.0000 wall=14s
+wrote results/main/L__qwen3.8-27b__emotion.csv spent today: {'qwen3.8-27b': 0.0}
+qwen3.8-27b yelp     B=10  batch  shuffled  rep=0 n=500 acc=0.668 refused=0.000 missing=0.000 $=0.0000 wall=22s
+qwen3.8-27b yelp     B=10  batch  shuffled1 rep=0 n=500 acc=0.658 refused=0.000 missing=0.000 $=0.0000 wall=18s
+qwen3.8-27b yelp     B=10  batch  sorted    rep=0 n=500 acc=0.606 refused=0.000 missing=0.000 $=0.0000 wall=19s
+qwen3.8-27b yelp     B=10  batch  keyed     rep=0 n=500 acc=0.654 refused=0.000 missing=0.000 $=0.0000 wall=17s
+qwen3.8-27b yelp     B=10  batch  perm1     rep=0 n=500 acc=0.648 refused=0.000 missing=0.000 $=0.0000 wall=25s
+qwen3.8-27b yelp     B=10  batch  shuffled  rep=1 n=500 acc=0.666 refused=0.000 missing=0.000 $=0.0000 wall=28s
+wrote results/main/L__qwen3.8-27b__yelp.csv spent today: {'qwen3.8-27b': 0.0}
+qwen3.8-27b hate     B=10  batch  shuffled  rep=0 n=500 acc=0.706 refused=0.000 missing=0.000 $=0.0000 wall=19s
+qwen3.8-27b hate     B=10  batch  shuffled1 rep=0 n=500 acc=0.712 refused=0.000 missing=0.000 $=0.0000 wall=23s
+qwen3.8-27b hate     B=10  batch  sorted    rep=0 n=500 acc=0.736 refused=0.000 missing=0.000 $=0.0000 wall=19s
+qwen3.8-27b hate     B=10  batch  keyed     rep=0 n=500 acc=0.704 refused=0.000 missing=0.000 $=0.0000 wall=21s
+qwen3.8-27b hate     B=10  batch  perm1     rep=0 n=500 acc=0.716 refused=0.000 missing=0.000 $=0.0000 wall=20s
+qwen3.8-27b hate     B=10  batch  shuffled  rep=1 n=500 acc=0.710 refused=0.000 missing=0.000 $=0.0000 wall=33s
+wrote results/main/L__qwen3.8-27b__hate.csv spent today: {'qwen3.8-27b': 0.0}
+NEWEST DONE qwen3.8-27b Wed Nov 11 12:39:03 CST 2026
